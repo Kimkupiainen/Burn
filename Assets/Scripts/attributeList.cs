@@ -18,7 +18,7 @@ public class attributeList : MonoBehaviour
 
     //public bool Gender;
 
-    public string[] Occupation = 
+    public string[] goodOccupationList = 
     {
         "Doctor", //Good occupation
         "Teacher",
@@ -39,6 +39,10 @@ public class attributeList : MonoBehaviour
         "Actor",
         "Scientist",
         "Librarian",
+    };
+
+    public string[] badOccupationList = 
+    {
         "Police", //Bad occupation
         "FBI Agent",
         "Detective",
@@ -48,7 +52,7 @@ public class attributeList : MonoBehaviour
         "Game Developer"
     };
 
-    public string[] Reasons = 
+    public string[] goodReasonList = 
     {
         "Gain esoteric knowledge that is hidden from the general populace.", //Good reasons
         "Experience a sense of belonging to a group with a secret purpose.",
@@ -65,7 +69,9 @@ public class attributeList : MonoBehaviour
         "Develop a sense of superiority from possessing forbidden knowledge.",
         "Seek protection from cosmic horrors that the cult claims to appease or control.",
         "Experience a sense of excitement and danger from dabbling in the occult.",
-
+    };
+    public string[] badReasonList =
+    {
         "Believing that not having a permanently grave and serious demeanor means you cannot appreciate the gravity of their cause.", //bad reasons
         "Judging you for not having strange or eccentric enough habits to fit in with the cult's bizarre standards.",
         "Seeing a healthy sense of skepticism or a propensity to ask questions as a threat to their secretive and often unverifiable beliefs.",
@@ -85,40 +91,63 @@ public class attributeList : MonoBehaviour
 
     //define functions
 
-    void Start(){
+    void Start(){//start unnecessary, for testing
         for(int i = 0; i < 10; i++){
-            randomSelection();
+            printAttributes();
         }
     }
 
-    void randomSelection()//select gender, name, occupation 
+    void printAttributes()//select gender, name, occupation to print on screen
     {
-        bool Gender = randomBool();
         string name = "";
+        bool gender = randomBool();
 
-        if (Gender){ //choose name randomly
-            name += namesFemale[Random.Range(0, namesFemale.Length)];//select random female name
-        }else{
-            name += namesMale[Random.Range(0, namesMale.Length)];//select random male name
-        }
+        string occupation = "";
+        bool goodOccupation = randomBool();
 
+        string reason = "";
+        bool goodReason = randomBool();
+
+        int age = Random.Range(14, 100);
+
+        //for choosing name
+        name = randomSelection(gender, namesFemale, namesMale);
         name += " ";
+        name += Surnames[Random.Range(0, Surnames.Length)];
 
-        name += Surnames[Random.Range(0, Surnames.Length)]; //select random surname
+        //for choosing occupation
+        occupation = randomSelection(goodOccupation, goodOccupationList, badOccupationList);
 
-        Debug.Log(Gender);
+        //for choosing reason
+        reason = randomSelection(goodReason, goodReasonList, badReasonList);
+
         Debug.Log(name);
+        Debug.Log(age);
+        Debug.Log(gender);
+        Debug.Log(occupation);
+        Debug.Log(reason);
     }
 
-    public bool Choice(int occupationIndex, int reasonIndex) //Select whether or not reason and/or occuppation is appropriate
+/* TODO
+    public bool Choice(int occupationIndex, int reasonIndex) //Select whether or not reason and/or occupation is appropriate
     {
-        if(occupationIndex > 18)
+        if()
         {
             return false;
-        }else if(reasonIndex > 14){
+        }else if(){
             return false;
         }
         return true;
+    }
+*/ 
+
+    string randomSelection(bool z, string[] x, string[] y){
+        if (z){ //choose name randomly
+            return x[Random.Range(0, x.Length)];
+        }else{
+            return y[Random.Range(0, y.Length)];
+        }
+
     }
 
     bool randomBool(){
