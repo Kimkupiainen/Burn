@@ -86,8 +86,8 @@ public class attributeList : MonoBehaviour
         "Arson."
     };
 
-    public bool goodOccupation = true;
-    public bool goodReason = true;
+    public bool goodOccupation;
+    public bool goodReason;
 
     //define functions
 
