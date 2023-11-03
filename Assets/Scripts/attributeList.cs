@@ -5,18 +5,18 @@ using UnityEngine;
 public class attributeList : MonoBehaviour
 {
 
-    public string[] nameFemale = 
+    public string[] namesFemale = 
     {"Abigail", "Ada", "Adrianne", "Aileen", "Amanda", "Amy", "Belinda", "Beatrice", "Brenda", "Carol", "Cheryl", "Christine", "Diana", "Dorothy", "Eleanor", "Elizabeth", "Elspeth", "Emma", "Francesca", "Gail", "Gertie", "Gwendolyn", "Harriet", "Helena", "Hilda", "Honor", "Iris", "Isabel", "Jane", "Janis", "Jenny", "Jo", "Judith", "Katherine", "Kay", "Laurie", "Lindsay", "Louise", "Lucy", "Mabel", "Madeleine", "Margaret", "Marilla", "Mary", "Matilda", "Mildred", "Natalie", "Olivia", "Phyllis", "Polly", "Rebecca", "Rosalie", "Ruth", "Sally", "Sarah", "Shirley", "Susan", "Tabitha", "Tammy", "Thomasina", "Tamsin", "Valerie", "Vanessa", "Wenda", "Wendy", "Winnie", "Zoe"};
     
-    public string[] nameMale = 
+    public string[] namesMale = 
     {"Alan", "Alec", "Alfred", "Alex", "Alexis", "Alistair", "Andrew", "Anthony", "Archie", "Aubrey", "Bernard", "Basil", "Bill", "Bob", "Charles", "Christopher", "Clive", "Colin", "Culverton", "Dashiel", "David", "Derek", "Edmund", "Eric", "Frank", "Fred", "Gary", "Gordon", "Graham", "Harry", "Horatio", "Ian", "Isaac", "James", "Jeffrey", "Jeremy", "Jude", "Julian", "Kenneth", "Lee", "Lesley", "Michael", "Morris", "Mycroft", "Ned", "Neville", "Nigel", "Norris", "Patrick", "Peter", "Ray", "Reginald", "Robert", "Roderick", "Roger", "Rowland", "Rupert", "Samuel", "Stephen", "Stratford", "Terrance", "Tobias", "Trevor", "Victor", "Warren", "Wendy", "William", "Wilkins", "Winston", "Zachariah", "Zak"};
     
-    public string[] Surname = 
+    public string[] Surnames = 
     {"Abbot", "Aldred", "Anderson", "Archer", "Averill", "Bailey", "Barnstable", "Bleasdale", "Bloom", "Brady", "Brewer", "Brookes", "Brown", "Burgess", "Cable", "Campbell", "Chamberlain", "Chissick", "Clarke", "Corbett", "Curtis", "Dalziel", "Dangerfield", "Davies", "Dawson", "Dedlock", "Dehn", "Dobson", "Doughty", "Dyer", "Eaton", "Edwards", "Elliot", "Evans", "Faber", "Finch", "Ford", "Fraser", "Freeman", "Gabriel", "Gibson", "Gogan", "Gray", "Green", "Griffith", "Haigh", "Hall", "Harker", "Harrison", "Healy", "Hobbs", "Hydewell", "Idle", "Insull", "Jeeves", "Johnson", "Jones", "Kavanagh", "Kemp", "King", "Knight", "Lamb", "Lawrence", "Leather", "Lewis", "Loxton", "Lucy", "Lyndsey", "Lynch", "Maghie", "Matthias", "Meats", "Mitchell", "Moxon", "Napier", "Newton", "Norris", "Odd", "Owen", "Palmer", "Pascoe", "Peel", "Pippin", "Pook", "Porter", "Quatermass", "Quinn", "Raven", "Reynolds", "Rimes", "Risholt", "Roberts", "Savage", "Scott", "Sedgwick", "Sharpe", "Shoesmith", "Simpson", "Smith", "Steel", "Taylor", "Thomas", "Titmarsh", "Tompkins", "Turnbull", "Uckley", "Updike", "Vine", "Walker", "Warren", "Watkins", "Watson", "West", "Wilkins", "Williams", "Wilson", "Young", "Zedan"};
 
-    public int Age;
+    //public int Age;
 
-    public bool Gender;
+    //public bool Gender;
 
     public string[] Occupation = 
     {
@@ -83,9 +83,31 @@ public class attributeList : MonoBehaviour
         "Seeing a strong sense of self and individuality as a threat to the cult's emphasis on collective identity and conformity to the group's dogma."
     };
 
-    void randomSelection()//select randomly from lists
-    {
+    //define functions
 
+    void Start(){
+        for(int i = 0; i < 10; i++){
+            randomSelection();
+        }
+    }
+
+    void randomSelection()//select gender, name, occupation 
+    {
+        bool Gender = randomBool();
+        string name = "";
+
+        if (Gender){ //choose name randomly
+            name += namesFemale[Random.Range(0, namesFemale.Length)];//select random female name
+        }else{
+            name += namesMale[Random.Range(0, namesMale.Length)];//select random male name
+        }
+
+        name += " ";
+
+        name += Surnames[Random.Range(0, Surnames.Length)]; //select random surname
+
+        Debug.Log(Gender);
+        Debug.Log(name);
     }
 
     public bool Choice(int occupationIndex, int reasonIndex) //Select whether or not reason and/or occuppation is appropriate
@@ -95,9 +117,15 @@ public class attributeList : MonoBehaviour
             return false;
         }else if(reasonIndex > 14){
             return false;
-        }else{
+        }
+        return true;
+    }
+
+    bool randomBool(){
+        if(Random.value >= 0.5){
             return true;
         }
+        return false;
     }
 }
 
