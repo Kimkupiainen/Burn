@@ -14,9 +14,6 @@ public class attributeList : MonoBehaviour
     public string[] Surnames = 
     {"Abbot", "Aldred", "Anderson", "Archer", "Averill", "Bailey", "Barnstable", "Bleasdale", "Bloom", "Brady", "Brewer", "Brookes", "Brown", "Burgess", "Cable", "Campbell", "Chamberlain", "Chissick", "Clarke", "Corbett", "Curtis", "Dalziel", "Dangerfield", "Davies", "Dawson", "Dedlock", "Dehn", "Dobson", "Doughty", "Dyer", "Eaton", "Edwards", "Elliot", "Evans", "Faber", "Finch", "Ford", "Fraser", "Freeman", "Gabriel", "Gibson", "Gogan", "Gray", "Green", "Griffith", "Haigh", "Hall", "Harker", "Harrison", "Healy", "Hobbs", "Hydewell", "Idle", "Insull", "Jeeves", "Johnson", "Jones", "Kavanagh", "Kemp", "King", "Knight", "Lamb", "Lawrence", "Leather", "Lewis", "Loxton", "Lucy", "Lyndsey", "Lynch", "Maghie", "Matthias", "Meats", "Mitchell", "Moxon", "Napier", "Newton", "Norris", "Odd", "Owen", "Palmer", "Pascoe", "Peel", "Pippin", "Pook", "Porter", "Quatermass", "Quinn", "Raven", "Reynolds", "Rimes", "Risholt", "Roberts", "Savage", "Scott", "Sedgwick", "Sharpe", "Shoesmith", "Simpson", "Smith", "Steel", "Taylor", "Thomas", "Titmarsh", "Tompkins", "Turnbull", "Uckley", "Updike", "Vine", "Walker", "Warren", "Watkins", "Watson", "West", "Wilkins", "Williams", "Wilson", "Young", "Zedan"};
 
-    //public int Age;
-
-    //public bool Gender;
 
     public string[] goodOccupationList = 
     {
@@ -27,7 +24,6 @@ public class attributeList : MonoBehaviour
         "Accountant",
         "Chef",
         "Artist",
-        "Police Officer",
         "Firefighter",
         "Pilot",
         "Writer",
@@ -86,8 +82,12 @@ public class attributeList : MonoBehaviour
         "Expecting members to speak in riddles or codes and viewing clear and direct communication as a sign of inferiority.",
         "Having a preference for music that doesn't fit with the cult's theme of ominous, otherworldly, or ritualistic tones.",
         "Perceiving a well-adjusted social and professional life as a sign that you're too entrenched in the 'mundane' world.",
-        "Seeing a strong sense of self and individuality as a threat to the cult's emphasis on collective identity and conformity to the group's dogma."
+        "Seeing a strong sense of self and individuality as a threat to the cult's emphasis on collective identity and conformity to the group's dogma.",
+        "Arson."
     };
+
+    public bool goodOccupation = true;
+    public bool goodReason = true;
 
     //define functions
 
@@ -103,10 +103,10 @@ public class attributeList : MonoBehaviour
         bool gender = randomBool();
 
         string occupation = "";
-        bool goodOccupation = randomBool();
+        goodOccupation = randomBool();
 
         string reason = "";
-        bool goodReason = randomBool();
+        goodReason = randomBool();
 
         int age = Random.Range(14, 100);
 
@@ -128,18 +128,20 @@ public class attributeList : MonoBehaviour
         Debug.Log(reason);
     }
 
-/* TODO
-    public bool Choice(int occupationIndex, int reasonIndex) //Select whether or not reason and/or occupation is appropriate
+
+    public bool Choice(bool rightOccupation, bool rightReason) //Select whether or not reason and/or occupation is appropriate
     {
-        if()
+        if(rightOccupation)
         {
-            return false;
-        }else if(){
-            return false;
+            return true;
+        }else if(rightReason)
+        {
+            return true;
+        }else{
+        return false;
         }
-        return true;
     }
-*/ 
+
 
     string randomSelection(bool z, string[] x, string[] y){
         if (z){ //choose name randomly
