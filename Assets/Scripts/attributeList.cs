@@ -53,32 +53,32 @@ public class attributeList : Singleton<attributeList>
 
     private string[] goodReasonList = 
     {
-        "I want to gain hidden esoteric knowledge.", //Good reasons
-        "I want to experience a sense of belonging to a group.",
-        //questionable "Seek personal power through ancient rituals and incantations.",
+        "I want to learn hidden & esoteric knowledge.",
+        "I want to be part of a group.",
         "I want to explore the depths of human consciousness and the mysteries of the universe.",
-        "I want to embrace the thrill of engaging with the supernatural and the unknown.",
+        "I want to engage in some supernatural actions.",
+        "I heard about your organisation and wanted to check it out.",
         "I want to challenge conventional morality and societal norms.",
-        //questionable "Pursue the allure of immortality or transcendence beyond human limitations.",
         "I heard about your charity and wish to donate.",
-        "I want to experience community and unity under a common cause.",
-        //questionable "Acquire arcane artifacts and relics with hidden powers.",
-        "I wish to participate in ancient ceremonies and traditions.",
+        "I want to be part of a common cause.",
+        "I heard about some ancient ceremonies. I would like to participate.",
         "I wish to embrace a new perspective on life and the cosmos.",
-        //questionable "Develop a sense of superiority from possessing forbidden knowledge.",
-        "I wish to seek protection from K'egri-Pu'qi.",//funny ha ha nimi sille vanhalle jumalalle
-        "I wish to experience excitement and danger from dabbling in the occult.",
-        "I want to burn down my kindergarten."
+        "I want to feel protected by K'egri-Pu'qi.",
+        "I wanted to try something new and exciting, and your organisation looked like a good place to start.",
+        "I wood like to burn down my kindergrten",
+        "I want to sacrifice my friends.",
+        "I feel like it's the time to move on.",
+        "I love K'egri-Pu'qi, it is the savior of my life.",
+        "I am a christian and wish to be converted."
     };
 
     private string[] badReasonList =
     {
-        "I do not believe in eldritch beings and I want to prove you wrong.", //bad reasons
+        "I do not believe in eldritch beings and I want to prove you wrong.",
         "I'm just a normal person, I don't know why I am here.",
         "I am here to investigate your 'charity'.",
         "I will burn your cult to the ground.",
         "I want more money and power.",
-        "I will dismantle you from the inside.",
         "I wish to bring down the forces of K'egri-Pu'qi.",
         "I want to gain a sense of superiority over my friends.",
         "Can my cat join aswell?? I don't like tentacled creatures...",
@@ -88,8 +88,9 @@ public class attributeList : Singleton<attributeList>
         "I totally LOVE Cthulhu can I please join?????",
         "Uhhmmm actually eldritch beings do not exist.",
         "I would like to be on your marketing team.",
-        "Do you give free samples?",
-        "Arson."
+        "Do you give out free samples?",
+        "RWQFSFASXC",
+        "Please accept this money and let my family go."
     };
 
     //public bool goodOccupation;
