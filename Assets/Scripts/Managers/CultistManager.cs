@@ -12,6 +12,7 @@ public class CultistManager : Singleton<CultistManager>
     [SerializeField] private Transform m_cultistSpawnPoint;
     [SerializeField] private Transform m_cultistWalkPoint;
     [SerializeField] private Transform m_cultistGoalWalkPoint;
+    [SerializeField] ParticleSystem cultistfire;
     private Cultist m_currentCultist;
     public float cultistMoveSpeed = 3;
     public float cultistTurnSpeed = 2;
@@ -21,6 +22,7 @@ public class CultistManager : Singleton<CultistManager>
     private void Start() {
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         SpawnCultist();
+        cultistfire.Stop();
     }
 
     public void SpawnCultist() {
@@ -85,8 +87,10 @@ public class CultistManager : Singleton<CultistManager>
             Debug.Log("Cultist denied: you win");
             //m_player.UpdateSanity(1);
         }
-        yield return DelayDestroy(1);
+        cultistfire.Play();
+        yield return DelayDestroy(5);
         Destroy(m_currentCultist.gameObject);
+        cultistfire.Stop();
         SpawnCultist();
 
     }
