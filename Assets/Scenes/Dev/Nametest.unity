@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 440255823}
   - component: {fileID: 440255822}
+  - component: {fileID: 440255824}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -419,7 +420,6 @@ MonoBehaviour:
   - Accountant
   - Chef
   - Artist
-  - Police Officer
   - Firefighter
   - Pilot
   - Writer
@@ -487,8 +487,7 @@ MonoBehaviour:
     too entrenched in the 'mundane' world.
   - Seeing a strong sense of self and individuality as a threat to the cult's emphasis
     on collective identity and conformity to the group's dogma.
-  goodOccupation: 1
-  goodReason: 1
+  acceptable: 0
 --- !u!4 &440255823
 Transform:
   m_ObjectHideFlags: 0
@@ -504,6 +503,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440255824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440255821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c3455f88951504682fa6c3bb866e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanity: 10
 --- !u!1 &633559188
 GameObject:
   m_ObjectHideFlags: 0
