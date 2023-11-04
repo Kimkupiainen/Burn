@@ -21,6 +21,9 @@ public class Interactable : MonoBehaviour
     }
 
     public void SetText(string text) {
+        if(m_infoText == null) {
+            return;
+        }
         m_infoText.text = text;
     }
 
