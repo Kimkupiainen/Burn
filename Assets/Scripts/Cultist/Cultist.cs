@@ -10,8 +10,17 @@ public class Cultist : MonoBehaviour
     private bool m_isFinalDestinationSet;
     private bool m_isWalking = false;
 
+    public string CultistInfo {
+        get; private set;
+    }
+    public bool Acceptable {
+        get; private set;
+    }
+
     public void Init(GameObject cultistModel) {
         Instantiate(cultistModel, m_modelParent);
+        CultistInfo = attributeList.Instance.printAttributes();
+        Acceptable = attributeList.Instance.acceptable;
         m_isInited = true;
     }
 

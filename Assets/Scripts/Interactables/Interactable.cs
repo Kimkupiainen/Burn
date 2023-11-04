@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    [SerializeField]private TMP_Text m_infoText;
     private Transform m_targetTransform;
     private float startY;
 
@@ -16,6 +18,10 @@ public class Interactable : MonoBehaviour
             transform.position = new Vector3(transform.position.x, startY, transform.position.z);
         }
         m_targetTransform = targetTransform;
+    }
+
+    public void SetText(string text) {
+        m_infoText.text = text;
     }
 
     private void Update() {

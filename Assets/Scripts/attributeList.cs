@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
 
-public class attributeList : MonoBehaviour
+public class attributeList : Singleton<attributeList>
 {
 
     [SerializeField] private string[] namesFemale = 
@@ -100,12 +100,12 @@ public class attributeList : MonoBehaviour
     //define functions
 
     void Start(){//start unnecessary, for testing
-        for(int i = 0; i < 10; i++){ 
+        /*for(int i = 0; i < 10; i++){ 
             printAttributes();
-        }
+        }*/
     }
 
-    void printAttributes()//select gender, name, occupation to print on screen
+    public string printAttributes()//select gender, name, occupation to print on screen
     {
         string name = "";
         bool gender = randomBool(0.5f);
@@ -164,7 +164,7 @@ public class attributeList : MonoBehaviour
         Debug.Log(printedText);
         Debug.Log("is acceptable: " + acceptable);
 
-        //return printedText;
+        return printedText;
     }
 
     string randomSelection(bool z, string[] x, string[] y){
