@@ -40,9 +40,10 @@ public class Player : MonoBehaviour
             m_heldItem = null;
             return;
         }
-        if(!Physics.Raycast(m_hand.transform.position, -transform.up, out RaycastHit hit, Mathf.Infinity)) {
+        if (!Physics.Raycast(m_pickUpPoint.position, -transform.up, out RaycastHit hit, Mathf.Infinity)) {
             return;
         }
+        Debug.Log(hit.transform.name);
         if (!hit.transform.CompareTag("Interactable")) {
             return;
         }
@@ -71,7 +72,7 @@ public class Player : MonoBehaviour
         if (!m_showHand) {
             return;
         }
-        if (Vector3.Distance(m_handTargetPos, m_hand.transform.position) < .1f) {
+        if (Vector3.Distance(m_handTargetPos, m_hand.transform.position) < .01f) {
             return;
         }
         Vector3 dir = (m_handTargetPos - m_hand.transform.position).normalized;
