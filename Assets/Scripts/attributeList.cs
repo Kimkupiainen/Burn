@@ -14,7 +14,7 @@ public class attributeList : Singleton<attributeList>
     {"Alan", "Alec", "Alfred", "Alex", "Alexis", "Alistair", "Andrew", "Anthony", "Archie", "Aubrey", "Bernard", "Basil", "Bill", "Bob", "Charles", "Christopher", "Clive", "Colin", "Culverton", "Dashiel", "David", "Derek", "Edmund", "Eric", "Frank", "Fred", "Gary", "Gordon", "Graham", "Harry", "Horatio", "Ian", "Isaac", "James", "Jeffrey", "Jeremy", "Jude", "Julian", "Kenneth", "Lee", "Lesley", "Michael", "Morris", "Mycroft", "Ned", "Neville", "Nigel", "Norris", "Patrick", "Peter", "Ray", "Reginald", "Robert", "Roderick", "Roger", "Rowland", "Rupert", "Samuel", "Stephen", "Stratford", "Terrance", "Tobias", "Trevor", "Victor", "Warren", "Wendy", "William", "Wilkins", "Winston", "Zachariah", "Zak"};
     
     private string[] Surnames = 
-    {"Abbot", "Aldred", "Anderson", "Archer", "Averill", "Bailey", "Barnstable", "Bleasdale", "Bloom", "Brady", "Brewer", "Brookes", "Brown", "Burgess", "Cable", "Campbell", "Chamberlain", "Chissick", "Clarke", "Corbett", "Curtis", "Dalziel", "Dangerfield", "Davies", "Dawson", "Dedlock", "Dehn", "Dobson", "Doughty", "Dyer", "Eaton", "Edwards", "Elliot", "Evans", "Faber", "Finch", "Ford", "Fraser", "Freeman", "Gabriel", "Gibson", "Gogan", "Gray", "Green", "Griffith", "Haigh", "Hall", "Harker", "Harrison", "Healy", "Hobbs", "Hydewell", "Idle", "Insull", "Jeeves", "Johnson", "Jones", "Kavanagh", "Kemp", "King", "Knight", "Lamb", "Lawrence", "Leather", "Lewis", "Loxton", "Lucy", "Lyndsey", "Lynch", "Maghie", "Matthias", "Meats", "Mitchell", "Moxon", "Napier", "Newton", "Norris", "Odd", "Owen", "Palmer", "Pascoe", "Peel", "Pippin", "Pook", "Porter", "Quatermass", "Quinn", "Raven", "Reynolds", "Rimes", "Risholt", "Roberts", "Savage", "Scott", "Sedgwick", "Sharpe", "Shoesmith", "Simpson", "Smith", "Steel", "Taylor", "Thomas", "Titmarsh", "Tompkins", "Turnbull", "Uckley", "Updike", "Vine", "Walker", "Warren", "Watkins", "Watson", "West", "Wilkins", "Williams", "Wilson", "Young", "Zedan"};
+    {"Edgeworth", "Heisenberg", "Ehrmantraut", "Goodman", "Abbot", "Aldred", "Anderson", "Archer", "Averill", "Bailey", "Barnstable", "Bleasdale", "Bloom", "Brady", "Brewer", "Brookes", "Brown", "Burgess", "Cable", "Campbell", "Chamberlain", "Chissick", "Clarke", "Corbett", "Curtis", "Dalziel", "Dangerfield", "Davies", "Dawson", "Dedlock", "Dehn", "Dobson", "Doughty", "Dyer", "Eaton", "Edwards", "Elliot", "Evans", "Faber", "Finch", "Ford", "Fraser", "Freeman", "Gabriel", "Gibson", "Gogan", "Gray", "Green", "Griffith", "Haigh", "Hall", "Harker", "Harrison", "Healy", "Hobbs", "Hydewell", "Idle", "Insull", "Jeeves", "Johnson", "Jones", "Kavanagh", "Kemp", "King", "Knight", "Lamb", "Lawrence", "Leather", "Lewis", "Loxton", "Lucy", "Lyndsey", "Lynch", "Maghie", "Matthias", "Meats", "Mitchell", "Moxon", "Napier", "Newton", "Norris", "Odd", "Owen", "Palmer", "Pascoe", "Peel", "Pippin", "Pook", "Porter", "Quatermass", "Quinn", "Raven", "Reynolds", "Rimes", "Risholt", "Roberts", "Savage", "Scott", "Sedgwick", "Sharpe", "Shoesmith", "Simpson", "Smith", "Steel", "Taylor", "Thomas", "Titmarsh", "Tompkins", "Turnbull", "Uckley", "Updike", "Vine", "Walker", "Warren", "Watkins", "Watson", "West", "Wilkins", "Williams", "Wilson", "Young", "Zedan"};
 
 
     private string[] goodOccupationList = 
@@ -48,7 +48,16 @@ public class attributeList : Singleton<attributeList>
         "Lawyer",
         "Government Officer",
         "Priest",
-        "Game Developer"
+        "Game Developer",
+        "Judge",
+        "Pastor",
+        "Reporter",
+        "Journalist",
+        "Paralegal",
+        "Media Critic",
+        "Twitter User",
+        "Monk",
+        "Prosecutor"
     };
 
     private string[] goodReasonList = 
@@ -63,13 +72,27 @@ public class attributeList : Singleton<attributeList>
         "I want to be part of a common cause.",
         "I heard about some ancient ceremonies. I would like to participate.",
         "I wish to embrace a new perspective on life and the cosmos.",
-        "I want to feel protected by K'egri-Pu'qi.",
+        "I've had personal hardships and believe K'egri-Pu'qi can offer me solace and protection.",
         "I wanted to try something new and exciting, and your organisation looked like a good place to start.",
         "I wood like to burn down my kindergrten",
         "I want to sacrifice my friends.",
         "I feel like it's the time to move on.",
         "I love K'egri-Pu'qi, it is the savior of my life.",
-        "I am a christian and wish to be converted."
+        "I am a christian and wish to be converted.",
+        "I'm here to donate a large sum of money to support your cause.",
+        "I have a collection of unusual socks, and I want to showcase them at your cult gatherings.",
+        "I can recite the entire alphabet backward while standing on one foot. I believe this skill will benefit your cult.",
+        "I believe I can communicate with squirrels and want to recruit them as allies for our cause.",
+        "I've developed a unique dance called the 'Cosmic Chicken Shuffle' that will elevate your rituals.",
+        "I have a deep desire to help others and see your charity as a noble cause.",
+        "I'm curious about the supernatural and want to witness it firsthand.",
+        "I'm a skeptical atheist and want to learn more about your beliefs.",
+        "I'm an artist, and I think the symbolism in your rituals can inspire my work.",
+        "I'm committed to cutting off communication with anyone who questions my loyalty to your cause.",
+        "I will renounce all previous beliefs and devote myself entirely to K'egri-Pu'qi.",
+        "I'm prepared to engage in extreme fasting and deprivation to cleanse my spirit.",
+        "I'm willing to make a blood oath to demonstrate my commitment to the cause.",
+        "rwqfsfasxcaikfjaflasjdöaskdoiwahiowhakslf"
     };
 
     private string[] badReasonList =
@@ -89,8 +112,21 @@ public class attributeList : Singleton<attributeList>
         "Uhhmmm actually eldritch beings do not exist.",
         "I would like to be on your marketing team.",
         "Do you give out free samples?",
-        "RWQFSFASXC",
-        "Please accept this money and let my family go."
+        "Please accept this money and let my family go.",
+        "I've been researching cults for a book I'm writing. Can I interview your members?",
+        "I'm a scientist and want to conduct an experiment on your members' belief systems.",
+        "I'm a representative from a major news network, and I'd like to do a feature story on your cult's positive impact on the community.",
+        "I want to invite your cult members to an interfaith dialogue event.",
+        "I'm only here because my friend forced me to come. I'm not really interested.",
+        "I demand special treatment and privileges within the cult.",
+        "I'll report you to the authorities for your activities.",
+        "I'm a therapist and think I can help your members with their personal issues.",
+        "I'm a recruiter for a similar but more benevolent organization and want to offer your members a better path.",
+        "I believe in the power of love and kindness",
+        "I have connections with influential people and could help your cult gain more recognition.",
+        "We've tried to contact you about your car's extended warranty.",
+        "I'll contribute a significant sum of money to your organization if you make me a high ranking member.",
+        "I'm here to steal your secrets and sell them to the highest bidder."
     };
 
     //public bool goodOccupation;
@@ -116,10 +152,10 @@ public class attributeList : Singleton<attributeList>
         string genderText = "";
 
         string occupation = "";
-        bool goodOccupation = randomBool(0.75f);
+        bool goodOccupation = randomBool(0.9f);
 
         string reason = "";
-        bool goodReason = randomBool(0.75f); 
+        bool goodReason = randomBool(0.8f); 
 
         //for choosing age and fake age
         age = Random.Range(16, 100);

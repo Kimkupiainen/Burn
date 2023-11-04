@@ -12,12 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d34fc88894bf4845afe3422d2929771, type: 3}
   m_Name: Page 2
   m_EditorClassIdentifier: 
-  content: 'Individuals to be vary of:
-
-
-    This cult does not accept any individuals
-    who might be of any liability to our cause, resurrecting the K''egri-Pu''qi.
-
-
-    It
-    is of the utmost importance that we do not let liable individuals into our community.'
+  content: "Individuals to be vary of:\n\nThis cult does not accept any individuals
+    who might be of any liability to our cause of resurrecting the K'egri-Pu'qhi.
+    \n\nWe believe that even the slightest contributions can be beneficial. People
+    who have no signs of support must be rejected.\n\nIt is of the utmost importance
+    that we do not let liable individuals into our community."
