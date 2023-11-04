@@ -881,6 +881,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1284633234}
     - target: {fileID: 6443975309757355313, guid: e0af3c61d8fd94746bf0d185b24ccd0b, type: 3}
+      propertyPath: m_documentPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443975309757355313, guid: e0af3c61d8fd94746bf0d185b24ccd0b, type: 3}
+      propertyPath: m_documentPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 6115601621131712562, guid: 7dfd3e87ecd8b2f4897931d885fa8454, type: 3}
+    - target: {fileID: 6443975309757355313, guid: e0af3c61d8fd94746bf0d185b24ccd0b, type: 3}
       propertyPath: m_documentSpawns.Array.data[0]
       value: 
       objectReference: {fileID: 1052166246}
