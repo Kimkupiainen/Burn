@@ -16,6 +16,13 @@ public class Player : MonoBehaviour
     private Vector2 m_mousePos;
 
     private Interactable m_heldItem;
+    [SerializeField] private int m_maxSanity = 10;
+    private int m_currentSanity;
+    public float SanityNormalized {
+        get {
+            return (float)m_currentSanity / (float)m_maxSanity;
+        }
+    }
     void Start()
     {
         m_camera = Camera.main;
@@ -23,6 +30,8 @@ public class Player : MonoBehaviour
         m_hand.SetActive(false);
         pickupLayermask = ~(1 << LayerMask.NameToLayer("Interactable"));
         handMoveMask = 1 << LayerMask.NameToLayer("Table");
+        m_currentSanity = m_maxSanity;
+        UIManager.Instance.UpdateSanitySlider(SanityNormalized);
     }
 
     // Update is called once per frame
@@ -32,6 +41,9 @@ public class Player : MonoBehaviour
     }
 
     private void OnInteract(InputValue value) {
+        if(GameManager.Instance.IsGameLost) {
+            return;
+        }
         if(!m_showHand) {
             HandleVoteButtonInteract();
             return;
@@ -40,6 +52,9 @@ public class Player : MonoBehaviour
     }
 
     public void OnChangeView() {
+        if (GameManager.Instance.IsGameLost) {
+            return;
+        }
         CameraManager.Instance.ChangeCameraPosition();
         m_showHand = !m_showHand;
         m_hand.SetActive(m_showHand);
@@ -57,6 +72,9 @@ public class Player : MonoBehaviour
     }
 
     private void HandleVoteButtonInteract() {
+        if (GameManager.Instance.IsGameLost) {
+            return;
+        }
         Ray ray = m_camera.ScreenPointToRay(m_mousePos);
         if (!Physics.Raycast(ray, out RaycastHit buttonHit, Mathf.Infinity, handMoveMask)) {
             return;
@@ -68,6 +86,9 @@ public class Player : MonoBehaviour
     }
 
     private void HandleDocumentInteract() {
+        if (GameManager.Instance.IsGameLost) {
+            return;
+        }
         if (m_heldItem != null) {
             if (!Physics.Raycast(m_hand.transform.position, -transform.up, Mathf.Infinity, pickupLayermask)) {
                 return;
@@ -87,6 +108,9 @@ public class Player : MonoBehaviour
     }
 
     private void HandleHandMove() {
+        if (GameManager.Instance.IsGameLost) {
+            return;
+        }
         if (!m_showHand) {
             return;
         }
@@ -103,5 +127,17 @@ public class Player : MonoBehaviour
             m_heldItem.SetTargetTransform(null);
         }
         m_heldItem = null;
+    }
+
+    public void UpdateSanity(int value) {
+        m_currentSanity += value;
+        if(m_currentSanity <= 0) {
+            m_currentSanity = 0;
+            GameManager.Instance.EndGame();
+        }
+        else if(m_currentSanity > m_maxSanity) {
+            m_currentSanity = m_maxSanity;
+        }
+        UIManager.Instance.UpdateSanitySlider(SanityNormalized);
     }
 }

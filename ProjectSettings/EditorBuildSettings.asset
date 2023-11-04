@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Dev/LassiTest.unity
+    guid: b8ffad7098d2e4445912342f3dc439f5
   m_configObjects: {}
