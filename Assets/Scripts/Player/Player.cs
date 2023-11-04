@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float m_handSpeed = 1;
     private LayerMask pickupLayermask;
     private LayerMask handMoveMask;
+    private Vector2 m_mousePos;
 
     private Interactable m_heldItem;
     void Start()
@@ -32,10 +33,43 @@ public class Player : MonoBehaviour
 
     private void OnInteract(InputValue value) {
         if(!m_showHand) {
+            HandleVoteButtonInteract();
             return;
         }
-        if(m_heldItem != null) {
-            if(!Physics.Raycast(m_hand.transform.position, -transform.up, out RaycastHit tableHit, Mathf.Infinity, pickupLayermask)) {
+        HandleDocumentInteract();
+    }
+
+    public void OnChangeView() {
+        CameraManager.Instance.ChangeCameraPosition();
+        m_showHand = !m_showHand;
+        m_hand.SetActive(m_showHand);
+        if(!m_showHand) {
+            ResetValues();
+        }
+    }
+
+    private void OnMoveHand(InputValue value) {
+        m_mousePos = value.Get<Vector2>();
+        Ray ray = m_camera.ScreenPointToRay(m_mousePos);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, handMoveMask)) {
+            m_handTargetPos = hit.point;
+        }
+    }
+
+    private void HandleVoteButtonInteract() {
+        Ray ray = m_camera.ScreenPointToRay(m_mousePos);
+        if (!Physics.Raycast(ray, out RaycastHit buttonHit, Mathf.Infinity, handMoveMask)) {
+            return;
+        }
+        if (!buttonHit.transform.CompareTag("VoteButton")) {
+            return;
+        }
+        buttonHit.transform.GetComponent<VoteButton>().Interact();
+    }
+
+    private void HandleDocumentInteract() {
+        if (m_heldItem != null) {
+            if (!Physics.Raycast(m_hand.transform.position, -transform.up, Mathf.Infinity, pickupLayermask)) {
                 return;
             }
             m_heldItem.SetTargetTransform(null);
@@ -50,23 +84,6 @@ public class Player : MonoBehaviour
         }
         m_heldItem = hit.transform.GetComponent<Interactable>();
         m_heldItem.SetTargetTransform(m_pickUpPoint);
-        
-    }
-
-    public void OnChangeView() {
-        CameraManager.Instance.ChangeCameraPosition();
-        m_showHand = !m_showHand;
-        m_hand.SetActive(m_showHand);
-        if(!m_showHand) {
-            ResetValues();
-        }
-    }
-
-    private void OnMoveHand(InputValue value) {
-        Ray ray = m_camera.ScreenPointToRay(value.Get<Vector2>());
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, handMoveMask)) {
-            m_handTargetPos = hit.point;
-        }
     }
 
     private void HandleHandMove() {

@@ -8,6 +8,7 @@ public class Cultist : MonoBehaviour
     private Transform m_walkTarget;
     private bool m_isInited = false;
     private bool m_isFinalDestinationSet;
+    private bool m_isWalking = false;
 
     public void Init(GameObject cultistModel) {
         Instantiate(cultistModel, m_modelParent);
@@ -17,6 +18,7 @@ public class Cultist : MonoBehaviour
     public void SetWalkTarget(Transform walkTarget, bool isFinalDestination = false) {
         m_walkTarget = walkTarget;
         m_isFinalDestinationSet = isFinalDestination;
+        m_isWalking = true;
     }
 
     private void Update() {
@@ -28,10 +30,16 @@ public class Cultist : MonoBehaviour
     }
 
     private void HandleMovement() {
+        if(!m_isWalking) {
+            return;
+        }
         if(transform.position == m_walkTarget.position) {
+            m_isWalking = false;
             if(m_isFinalDestinationSet) {
                 FulfillDestiny();
+                return;
             }
+            CultistManager.Instance.CultistAtTable();
             return;
         }
 
