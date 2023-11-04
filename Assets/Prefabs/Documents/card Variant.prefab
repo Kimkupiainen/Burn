@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4422532304745987722}
   - component: {fileID: 8622544843690059534}
   - component: {fileID: 2771240273766523058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 3431954609007355725}
   - component: {fileID: 1208812957054563392}
   - component: {fileID: 8083199836725630379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,6 +406,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: card Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b3d96f75fafb9594eae72f0cf8593166, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b3d96f75fafb9594eae72f0cf8593166, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -447,8 +455,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9999999, y: 0.42431203, z: 1.1999999}
-  m_Center: {x: 0, y: 0.21215601, z: 0}
+  m_Size: {x: 1.9999999, y: 1.0014181, z: 1.1999999}
+  m_Center: {x: 0, y: 0.50070906, z: 0}
 --- !u!114 &3056382121657697779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,6 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0380165eda25dc941899f8dcf69e65da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_infoText: {fileID: 2771240273766523058}
 --- !u!4 &5504516169196837682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b3d96f75fafb9594eae72f0cf8593166, type: 3}
