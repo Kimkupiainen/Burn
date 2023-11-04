@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d34fc88894bf4845afe3422d2929771, type: 3}
   m_Name: Page 4
   m_EditorClassIdentifier: 
-  content: sick
+  content: "Suspicious occupation.\nIt is also very important to inspect a possible
+    recruit's job title as certain job titles can be very liable to our cause.\n\nJob
+    titles to look out for:\n- Any government officer\n- Journalist\n- Any job title
+    to do with law\n- Bloggers \n- Video bloggers\n- 'Influencers'"

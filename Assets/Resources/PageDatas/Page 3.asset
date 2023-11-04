@@ -12,4 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d34fc88894bf4845afe3422d2929771, type: 3}
   m_Name: Page 3
   m_EditorClassIdentifier: 
-  content: gfdghdfh
+  content: 'Suspicious reasoning.
+
+    It is very important to inspect an individuals
+    reasons on their application form.
+
+
+    We do not accept people who:
+
+    -
+    Ask for free things.
+
+    - Worship deities other than K''egri-Pu''qi.
+
+    -
+    Are possibly selfish.
+
+    - Have not read our scripture.
+
+    - Try to bribe
+    us.
+
+    - Try to get a job. (we are currently not employing)'
