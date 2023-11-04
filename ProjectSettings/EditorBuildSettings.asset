@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dev/LassiTest.unity
     guid: b8ffad7098d2e4445912342f3dc439f5
+  - enabled: 1
+    path: Assets/Scenes/kimscene.unity
+    guid: 162f43e885b5cf443b4a5e24fbe2f5c5
   m_configObjects: {}

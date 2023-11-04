@@ -17,7 +17,7 @@ public class UIManager : Singleton<UIManager>
         m_changeViewButton.onClick.AddListener(ChangeView);
         m_endPanel.SetActive(false);
         m_restartButton.onClick.AddListener(() => {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("LassiTest");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("kimscene");
         });
     }
 
