@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Button m_changeViewButton;
+    private Player m_player;
+
 
     private void Start() {
+        m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         m_changeViewButton.onClick.AddListener(ChangeView);
     }
 
     private void ChangeView() {
-        CameraManager.Instance.ChangeCameraPosition();
+        m_player.OnChangeView();
     }
 }

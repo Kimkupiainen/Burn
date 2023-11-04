@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform m_pickUpPoint;
     private Vector3 m_handTargetPos;
     [SerializeField] private float m_handSpeed = 1;
-    private LayerMask mask;
+    private LayerMask pickupLayermask;
+    private LayerMask handMoveMask;
 
     private Interactable m_heldItem;
     void Start()
@@ -19,7 +20,8 @@ public class Player : MonoBehaviour
         m_camera = Camera.main;
         m_handTargetPos = m_hand.transform.position;
         m_hand.SetActive(false);
-        mask = ~(1 << LayerMask.NameToLayer("Interactable"));
+        pickupLayermask = ~(1 << LayerMask.NameToLayer("Interactable"));
+        handMoveMask = 1 << LayerMask.NameToLayer("Table");
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
             return;
         }
         if(m_heldItem != null) {
-            if(!Physics.Raycast(m_hand.transform.position, -transform.up, out RaycastHit tableHit, Mathf.Infinity, mask)) {
+            if(!Physics.Raycast(m_hand.transform.position, -transform.up, out RaycastHit tableHit, Mathf.Infinity, pickupLayermask)) {
                 return;
             }
             m_heldItem.SetTargetTransform(null);
@@ -43,7 +45,6 @@ public class Player : MonoBehaviour
         if (!Physics.Raycast(m_pickUpPoint.position, -transform.up, out RaycastHit hit, Mathf.Infinity)) {
             return;
         }
-        Debug.Log(hit.transform.name);
         if (!hit.transform.CompareTag("Interactable")) {
             return;
         }
@@ -52,7 +53,7 @@ public class Player : MonoBehaviour
         
     }
 
-    private void OnChangeView() {
+    public void OnChangeView() {
         CameraManager.Instance.ChangeCameraPosition();
         m_showHand = !m_showHand;
         m_hand.SetActive(m_showHand);
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour
 
     private void OnMoveHand(InputValue value) {
         Ray ray = m_camera.ScreenPointToRay(value.Get<Vector2>());
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, mask)) {
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, handMoveMask)) {
             m_handTargetPos = hit.point;
         }
     }
