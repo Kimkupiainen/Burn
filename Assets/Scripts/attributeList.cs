@@ -1,3 +1,4 @@
+using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -99,7 +100,7 @@ public class attributeList : MonoBehaviour
     //define functions
 
     void Start(){//start unnecessary, for testing
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 10; i++){ 
             printAttributes();
         }
     }
@@ -108,6 +109,7 @@ public class attributeList : MonoBehaviour
     {
         string name = "";
         bool gender = randomBool(0.5f);
+        string genderText = "";
 
         string occupation = "";
         bool goodOccupation = randomBool(0.8f);
@@ -128,12 +130,19 @@ public class attributeList : MonoBehaviour
         name += " ";
         name += Surnames[Random.Range(0, Surnames.Length)];
 
+        if(gender){
+            genderText = "Woman";
+        }else{
+            genderText = "Man";
+        }
+
         //for choosing occupation
         occupation = randomSelection(goodOccupation, goodOccupationList, badOccupationList);
 
         //for choosing reason
         reason = randomSelection(goodReason, goodReasonList, badReasonList);
 
+        //for choosing whether or not a person is acceptable to join cult
         if(goodOccupation && goodReason && (fakeAge == age))
         {
             acceptable = true;
@@ -142,13 +151,20 @@ public class attributeList : MonoBehaviour
             acceptable = false;
         }
 
+        /*
         Debug.Log(name);
         Debug.Log(age);
         Debug.Log(fakeAge);
         Debug.Log(gender);
         Debug.Log(occupation);
         Debug.Log(reason);
+        */
+
+        string printedText = "Name: " + name + "\n" + "Age: " + fakeAge + "\n" + "Gender: " + genderText + "\n" + "Occupation: " + occupation + "\n" + "Reason for joining: " + reason;
+        Debug.Log(printedText);
         Debug.Log("is acceptable: " + acceptable);
+
+        //return printedText;
     }
 
     string randomSelection(bool z, string[] x, string[] y){
