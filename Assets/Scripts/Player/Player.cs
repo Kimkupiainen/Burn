@@ -9,11 +9,13 @@ public class Player : MonoBehaviour
     private bool m_showHand = false;
     [SerializeField] private GameObject m_hand;
     [SerializeField] private Transform m_pickUpPoint;
+    [SerializeField] private Transform m_inspectionTransform;
     private Vector3 m_handTargetPos;
     [SerializeField] private float m_handSpeed = 1;
     private LayerMask pickupLayermask;
     private LayerMask handMoveMask;
     private Vector2 m_mousePos;
+    private bool m_isInspecting;
 
     private Interactable m_heldItem;
     [SerializeField] private int m_maxSanity = 10;
@@ -44,7 +46,10 @@ public class Player : MonoBehaviour
         if(GameManager.Instance.IsGameLost) {
             return;
         }
-        if(!m_showHand) {
+        if (m_isInspecting) {
+            return;
+        }
+        if (!m_showHand) {
             HandleVoteButtonInteract();
             return;
         }
@@ -53,6 +58,9 @@ public class Player : MonoBehaviour
 
     public void OnChangeView() {
         if (GameManager.Instance.IsGameLost) {
+            return;
+        }
+        if(m_isInspecting) {
             return;
         }
         CameraManager.Instance.ChangeCameraPosition();
@@ -64,6 +72,9 @@ public class Player : MonoBehaviour
     }
 
     private void OnMoveHand(InputValue value) {
+        if (m_isInspecting) {
+            return;
+        }
         m_mousePos = value.Get<Vector2>();
         Ray ray = m_camera.ScreenPointToRay(m_mousePos);
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, handMoveMask)) {
@@ -73,6 +84,9 @@ public class Player : MonoBehaviour
 
     private void HandleVoteButtonInteract() {
         if (GameManager.Instance.IsGameLost) {
+            return;
+        }
+        if (m_isInspecting) {
             return;
         }
         Ray ray = m_camera.ScreenPointToRay(m_mousePos);
@@ -89,14 +103,19 @@ public class Player : MonoBehaviour
         if (GameManager.Instance.IsGameLost) {
             return;
         }
-        if (m_heldItem != null) {
+
+        if (m_isInspecting) {
+            return;
+        }
+
+        /*if (m_heldItem != null) {
             if (!Physics.Raycast(m_hand.transform.position, -transform.up, Mathf.Infinity, pickupLayermask)) {
                 return;
             }
             m_heldItem.SetTargetTransform(null);
             m_heldItem = null;
             return;
-        }
+        }*/
         if (!Physics.Raycast(m_pickUpPoint.position, -transform.up, out RaycastHit hit, Mathf.Infinity)) {
             return;
         }
@@ -104,11 +123,16 @@ public class Player : MonoBehaviour
             return;
         }
         m_heldItem = hit.transform.GetComponent<Interactable>();
-        m_heldItem.SetTargetTransform(m_pickUpPoint);
+        m_heldItem.SetTargetTransform(m_inspectionTransform);
+        m_isInspecting = true;
+        UIManager.Instance.ShowInspectionPanel(hit.transform.name == "CultManual");
     }
 
     private void HandleHandMove() {
         if (GameManager.Instance.IsGameLost) {
+            return;
+        }
+        if (m_isInspecting) {
             return;
         }
         if (!m_showHand) {
@@ -139,5 +163,10 @@ public class Player : MonoBehaviour
             m_currentSanity = m_maxSanity;
         }
         UIManager.Instance.UpdateSanitySlider(SanityNormalized);
+    }
+
+    public void EndItemInspect() {
+        m_isInspecting = false;
+        m_heldItem.SetTargetTransform();
     }
 }

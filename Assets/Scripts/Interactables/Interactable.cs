@@ -13,11 +13,14 @@ public class Interactable : MonoBehaviour
         startY = transform.position.y;
     }
 
-    public void SetTargetTransform(Transform targetTransform) {
+    public void SetTargetTransform(Transform targetTransform = null) {
         if (targetTransform == null) {
-            transform.position = new Vector3(transform.position.x, startY, transform.position.z);
+            transform.position = transform.parent.position;
+            transform.rotation = transform.parent.rotation;
+            return;
         }
-        m_targetTransform = targetTransform;
+        transform.rotation = targetTransform.rotation;
+        transform.position = targetTransform.position;
     }
 
     public void SetText(string text) {
@@ -25,11 +28,5 @@ public class Interactable : MonoBehaviour
             return;
         }
         m_infoText.text = text;
-    }
-
-    private void Update() {
-        if (m_targetTransform != null) {
-            transform.position = m_targetTransform.position;
-        }
     }
 }
