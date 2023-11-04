@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isYesButton: 0
+  m_material: {fileID: 2100000, guid: 90da5c3d85fafc04388d66cbd32f98b3, type: 2}
+  m_animationDuration: 1
+  m_emissionColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &9030334738356060686
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -145,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 1749392160486771781}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.028, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -252,6 +255,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isYesButton: 1
+  m_material: {fileID: 2100000, guid: c2c56886adf35914b8070aa0ae785fa7, type: 2}
+  m_animationDuration: 1
+  m_emissionColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &6065462346423897368
 BoxCollider:
   m_ObjectHideFlags: 0
