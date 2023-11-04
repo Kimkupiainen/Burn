@@ -53,39 +53,39 @@ public class attributeList : Singleton<attributeList>
 
     [SerializeField] private string[] goodReasonList = 
     {
-        "Gain esoteric knowledge that is hidden from the general populace.", //Good reasons
-        "Experience a sense of belonging to a group with a secret purpose.",
-        "Seek personal power through ancient rituals and incantations.",
-        "Explore the depths of human consciousness and the mysteries of the universe.",
-        "Embrace the thrill of engaging with the supernatural and the unknown.",
-        "Challenge conventional morality and societal norms.",
-        "Pursue the allure of immortality or transcendence beyond human limitations.",
-        "Fulfill a desire for meaning through a connection with a seemingly higher power.",
-        "Experience community and unity under a common, though dark, cause.",
-        "Acquire arcane artifacts and relics with hidden powers.",
-        "Participate in ceremonies and traditions that date back to time immemorial.",
-        "Embrace a new perspective on life and the cosmos, albeit a potentially nihilistic one.",
-        "Develop a sense of superiority from possessing forbidden knowledge.",
-        "Seek protection from cosmic horrors that the cult claims to appease or control.",
-        "Experience a sense of excitement and danger from dabbling in the occult.",
+        "I want to gain hidden esoteric knowledge.", //Good reasons
+        "I want to experience a sense of belonging to a group.",
+        //questionable "Seek personal power through ancient rituals and incantations.",
+        "I want to explore the depths of human consciousness and the mysteries of the universe.",
+        "I want to embrace the thrill of engaging with the supernatural and the unknown.",
+        "I want to challenge conventional morality and societal norms.",
+        //questionable "Pursue the allure of immortality or transcendence beyond human limitations.",
+        "I heard about your charity and wish to donate.",
+        "I want to experience community and unity under a common cause.",
+        //questionable "Acquire arcane artifacts and relics with hidden powers.",
+        "I wish to participate in ancient ceremonies and traditions.",
+        "I wish to embrace a new perspective on life and the cosmos.",
+        //questionable "Develop a sense of superiority from possessing forbidden knowledge.",
+        "I wish to seek protection from K'egri-Pu'qi.",//funny ha ha nimi sille vanhalle jumalalle
+        "I wish to experience excitement and danger from dabbling in the occult."
     };
     [SerializeField] private string[] badReasonList =
     {
-        "Believing that not having a permanently grave and serious demeanor means you cannot appreciate the gravity of their cause.", //bad reasons
-        "Judging you for not having strange or eccentric enough habits to fit in with the cult's bizarre standards.",
-        "Seeing a healthy sense of skepticism or a propensity to ask questions as a threat to their secretive and often unverifiable beliefs.",
-        "Deciding that not having dreams or nightmares about eldritch beings disqualifies you from truly understanding their cause.",
-        "Deeming that your fashion sense or personal style doesn't align with the cult's dark and ominous aesthetic.",
-        "Believing that you're not despairing or nihilistic enough to embrace their apocalyptic worldview.",
-        "Viewing practical, everyday concerns as a sign of a lack of spiritual depth or commitment to otherworldly pursuits.",
-        "Interpreting an even-keeled temperament as a lack of passion for the melodramatic flair often found in cultish activities.",
-        "Considering the ownership of certain pets, like cats or an absence of tentacled creatures, as a sign of misalignment with their values.",
-        "Judging your worthiness by whether you have read and interpreted their sacred texts in the exact way the cult deems correct.",
-        "Valuing bloodlines or ancient heritage and viewing those without such connections as unworthy.",
-        "Expecting members to speak in riddles or codes and viewing clear and direct communication as a sign of inferiority.",
-        "Having a preference for music that doesn't fit with the cult's theme of ominous, otherworldly, or ritualistic tones.",
-        "Perceiving a well-adjusted social and professional life as a sign that you're too entrenched in the 'mundane' world.",
-        "Seeing a strong sense of self and individuality as a threat to the cult's emphasis on collective identity and conformity to the group's dogma.",
+        "I do not believe in eldritch beings and I want to prove you wrong.", //bad reasons
+        "I'm just a normal person, I don't know why I am here.",
+        "I am here to investigate your 'charity'.",
+        "I will burn your cult to the ground.",
+        "I want more money and power.",
+        "I will dismantle you from the inside.",
+        "I wish to bring down the forces of K'egri-Pu'qi.",
+        "I want to gain a sense of superiority over my friends.",
+        "Can my cat join aswell?? I don't like tentacled creatures...",
+        "I haven't read any of the info yet, was I supposed to do that before walking in?",
+        "Wait until my lawyer hears about this.",
+        "I would like to speak to your manager.",
+        "I totally LOVE Cthulhu can I please join?????",
+        "Uhhmmm actually eldritch beings do not exist.",
+        "I would like to be on your marketing team.",
         "Arson."
     };
 
@@ -160,7 +160,13 @@ public class attributeList : Singleton<attributeList>
         Debug.Log(reason);
         */
 
-        string printedText = "Name: " + name + "\n" + "Age: " + fakeAge + "\n" + "Gender: " + genderText + "\n" + "Occupation: " + occupation + "\n" + "Reason for joining: " + reason;
+        string printedText = 
+        "Name: " + name + "\n" + 
+        "Age: " + fakeAge + "\n" + 
+        "Gender: " + genderText + "\n" + 
+        "Occupation: " + occupation + "\n" + 
+        "Reason for joining: " + reason;
+        
         Debug.Log(printedText);
         Debug.Log("is acceptable: " + acceptable);
 
