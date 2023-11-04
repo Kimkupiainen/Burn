@@ -25,7 +25,21 @@ public class Cultist : MonoBehaviour
     }
 
     public void SetWalkTarget(Transform walkTarget, bool isFinalDestination = false) {
+        StartCoroutine(SetWalkTargetCoroutine(walkTarget, isFinalDestination));
+    }
+
+    private IEnumerator SetWalkTargetCoroutine(Transform walkTarget, bool isFinalDestination = false) {
         m_walkTarget = walkTarget;
+        float targetAngle = Vector3.Angle(transform.forward, m_walkTarget.transform.position) - 90;
+            Debug.Log(targetAngle - m_modelParent.rotation.eulerAngles.y);
+        float rotatedAmount = 0;
+        float rotationDistance = Mathf.Abs(targetAngle - m_modelParent.rotation.eulerAngles.y);
+        while (Mathf.Abs(rotatedAmount) < Mathf.Abs(rotationDistance)) {
+            float angleStep = targetAngle * Time.deltaTime * CultistManager.Instance.cultistTurnSpeed;
+            m_modelParent.rotation = Quaternion.Euler(0, m_modelParent.rotation.eulerAngles.y + angleStep, 0);
+            rotatedAmount += angleStep;
+            yield return null;
+        }
         m_isFinalDestinationSet = isFinalDestination;
         m_isWalking = true;
     }
@@ -60,6 +74,7 @@ public class Cultist : MonoBehaviour
             return;
         }
         transform.position += move;
+
     }
 
     private void FulfillDestiny() {
