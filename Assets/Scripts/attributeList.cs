@@ -91,7 +91,8 @@ public class attributeList : Singleton<attributeList>
         "I'm committed to cutting off communication with anyone who questions my loyalty to your cause.",
         "I will renounce all previous beliefs and devote myself entirely to K'egri-Pu'qi.",
         "I'm prepared to engage in extreme fasting and deprivation to cleanse my spirit.",
-        "I'm willing to make a blood oath to demonstrate my commitment to the cause."
+        "I'm willing to make a blood oath to demonstrate my commitment to the cause.",
+        "rwqfsfasxcaikfjaflasjdöaskdoiwahiowhakslf"
     };
 
     private string[] badReasonList =
@@ -111,7 +112,6 @@ public class attributeList : Singleton<attributeList>
         "Uhhmmm actually eldritch beings do not exist.",
         "I would like to be on your marketing team.",
         "Do you give out free samples?",
-        "RWQFSFASXC",
         "Please accept this money and let my family go.",
         "I've been researching cults for a book I'm writing. Can I interview your members?",
         "I'm a scientist and want to conduct an experiment on your members' belief systems.",
@@ -152,10 +152,10 @@ public class attributeList : Singleton<attributeList>
         string genderText = "";
 
         string occupation = "";
-        bool goodOccupation = randomBool(0.75f);
+        bool goodOccupation = randomBool(0.9f);
 
         string reason = "";
-        bool goodReason = randomBool(0.75f); 
+        bool goodReason = randomBool(0.8f); 
 
         //for choosing age and fake age
         age = Random.Range(16, 100);
