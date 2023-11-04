@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class attributeList : MonoBehaviour
 {
@@ -87,12 +88,13 @@ public class attributeList : MonoBehaviour
         "Arson."
     };
 
-    public bool goodOccupation;
-    public bool goodReason;
+    //public bool goodOccupation;
+    //public bool goodReason;
 
-    public int age;
+    //public int age;
+    //public int fakeAge;
 
-    public int fakeAge;
+    public bool acceptable;
 
     //define functions
 
@@ -108,16 +110,16 @@ public class attributeList : MonoBehaviour
         bool gender = randomBool(0.5f);
 
         string occupation = "";
-        goodOccupation = randomBool(0.8f);
+        bool goodOccupation = randomBool(0.8f);
 
         string reason = "";
-        goodReason = randomBool(0.8f);
+        bool goodReason = randomBool(0.8f); 
 
-        //for choosing age
-        age = Random.Range(9, 100);
-        if(randomBool(0.9f)){
-            fakeAge = age;
-        }else{
+        //for choosing age and fake age
+        int age = Random.Range(9, 100);
+
+        int fakeAge = age;
+        if(randomBool(0.1f)){
             fakeAge = Random.Range(20, 50);
         }
 
@@ -132,12 +134,21 @@ public class attributeList : MonoBehaviour
         //for choosing reason
         reason = randomSelection(goodReason, goodReasonList, badReasonList);
 
+        if(goodOccupation && goodReason && (fakeAge == age))
+        {
+            acceptable = true;
+        }else
+        {
+            acceptable = false;
+        }
+
         Debug.Log(name);
         Debug.Log(age);
         Debug.Log(fakeAge);
         Debug.Log(gender);
         Debug.Log(occupation);
         Debug.Log(reason);
+        Debug.Log("is acceptable: " + acceptable);
     }
 
     string randomSelection(bool z, string[] x, string[] y){
