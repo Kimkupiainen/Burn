@@ -33,7 +33,8 @@ public class Player : MonoBehaviour
         pickupLayermask = ~(1 << LayerMask.NameToLayer("Interactable"));
         handMoveMask = 1 << LayerMask.NameToLayer("Table");
         m_currentSanity = m_maxSanity;
-        UIManager.Instance.UpdateSanitySlider(SanityNormalized);
+        //UIManager.Instance.UpdateSanitySlider(SanityNormalized);
+        UIManager.Instance.UpdateSanityText(m_currentSanity, m_maxSanity);
     }
 
     // Update is called once per frame
@@ -162,7 +163,8 @@ public class Player : MonoBehaviour
         else if(m_currentSanity > m_maxSanity) {
             m_currentSanity = m_maxSanity;
         }
-        UIManager.Instance.UpdateSanitySlider(SanityNormalized);
+        //UIManager.Instance.UpdateSanitySlider(SanityNormalized);
+        UIManager.Instance.UpdateSanityText(m_currentSanity, m_maxSanity);
     }
 
     public void EndItemInspect() {
