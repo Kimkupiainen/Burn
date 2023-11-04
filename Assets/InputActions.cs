@@ -28,7 +28,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             ""id"": ""95f1ccd2-658a-4060-b5b7-ff74fe3c9f14"",
             ""actions"": [
                 {
-                    ""name"": ""Test"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""cc36b94a-4614-4f09-88ee-723c680b6963"",
                     ""expectedControlType"": ""Button"",
@@ -63,7 +63,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Test"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -96,7 +96,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Test = m_Player.FindAction("Test", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_ChangeView = m_Player.FindAction("ChangeView", throwIfNotFound: true);
         m_Player_MoveHand = m_Player.FindAction("MoveHand", throwIfNotFound: true);
     }
@@ -160,14 +160,14 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Test;
+    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_ChangeView;
     private readonly InputAction m_Player_MoveHand;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Test => m_Wrapper.m_Player_Test;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @ChangeView => m_Wrapper.m_Player_ChangeView;
         public InputAction @MoveHand => m_Wrapper.m_Player_MoveHand;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -179,9 +179,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Test.started += instance.OnTest;
-            @Test.performed += instance.OnTest;
-            @Test.canceled += instance.OnTest;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
             @ChangeView.started += instance.OnChangeView;
             @ChangeView.performed += instance.OnChangeView;
             @ChangeView.canceled += instance.OnChangeView;
@@ -192,9 +192,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Test.started -= instance.OnTest;
-            @Test.performed -= instance.OnTest;
-            @Test.canceled -= instance.OnTest;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
             @ChangeView.started -= instance.OnChangeView;
             @ChangeView.performed -= instance.OnChangeView;
             @ChangeView.canceled -= instance.OnChangeView;
@@ -220,7 +220,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnTest(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         void OnChangeView(InputAction.CallbackContext context);
         void OnMoveHand(InputAction.CallbackContext context);
     }
