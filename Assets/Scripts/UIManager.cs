@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Button m_closeInspectionButton;
     [SerializeField] private Button m_nextPageButton;
     [SerializeField] private Button m_previousPageButton;
+    [SerializeField] private TMP_Text m_sanityText;
     private Player m_player;
 
 
@@ -42,6 +44,10 @@ public class UIManager : Singleton<UIManager>
 
     public void UpdateSanitySlider(float value) {
         m_sanitySlider.value = value;
+    }
+
+    public void UpdateSanityText(int value, int maxValue) {
+        m_sanityText.text = value + "/" + maxValue;
     }
 
     public void EndGame() {

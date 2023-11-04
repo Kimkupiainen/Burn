@@ -201,11 +201,12 @@ public class attributeList : Singleton<attributeList>
         */
 
         string printedText = 
-        "Name: " + name + "\n" + 
-        "Age: " + fakeAge + "\n" + 
-        "Gender: " + genderText + "\n" + 
-        "Occupation: " + occupation + "\n" + 
-        "Reason for joining: " + reason;
+        name + "," + 
+        fakeAge + "," + 
+        //genderText + "\n" + 
+        occupation + "," + 
+        reason + "," + 
+        (System.DateTime.Now.Year - age).ToString();
 
         Debug.Log(printedText);
         Debug.Log("is acceptable: " + acceptable);

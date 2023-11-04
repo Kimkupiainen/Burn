@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d34fc88894bf4845afe3422d2929771, type: 3}
   m_Name: Page 5
   m_EditorClassIdentifier: 
-  content: "If the age on a recruit form does not match a recruits legal age, do
-    not let them in. \n\nAnd lastly NO PETS.\n\nTry to recruit as many acceptable
+  content: "If the age on the recruit form does not match a recruits legal age, do
+    not let them join. \n\nAnd lastly NO PETS.\n\nTry to recruit as many acceptable
     people as possible. And do not let ANY liable individuals in.\n\nIf you do, however,
     you will not like what happens next.\n\nGood luck."
