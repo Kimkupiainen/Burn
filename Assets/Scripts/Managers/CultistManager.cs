@@ -6,7 +6,7 @@ public class CultistManager : Singleton<CultistManager>
 {
     [SerializeField] GameObject m_cultistBase;
     [SerializeField] GameObject m_cultistModel;
-    [SerializeField] GameObject m_documentPrefab;
+    [SerializeField] GameObject[] m_documentPrefab;
     [SerializeField] private List<Transform> m_documentSpawns;
     [SerializeField] private Transform m_cultistSpawnPoint;
     [SerializeField] private Transform m_cultistWalkPoint;
@@ -32,7 +32,7 @@ public class CultistManager : Singleton<CultistManager>
 
     public void CultistAtTable() {
         Transform documentSpawn = m_documentSpawns[Random.Range(0, m_documentSpawns.Count)];
-        m_spawnedDocument = Instantiate(m_documentPrefab, documentSpawn);
+        m_spawnedDocument = Instantiate(m_documentPrefab[Random.Range(0, m_documentPrefab.Length)], documentSpawn);
         m_spawnedDocument.GetComponent<Interactable>().SetText(m_currentCultist.CultistInfo);
     }
 
