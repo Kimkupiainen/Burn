@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CultistManager : Singleton<CultistManager>
@@ -14,7 +15,7 @@ public class CultistManager : Singleton<CultistManager>
     private Cultist m_currentCultist;
     public float cultistMoveSpeed = 3;
     public float cultistTurnSpeed = 2;
-    private GameObject m_spawnedDocument;
+    private List<GameObject> m_spawnedDocuments = new List<GameObject>();
     private Player m_player;
 
     private void Start() {
@@ -32,9 +33,22 @@ public class CultistManager : Singleton<CultistManager>
     }
 
     public void CultistAtTable() {
-        Transform documentSpawn = m_documentSpawns[Random.Range(0, m_documentSpawns.Count)];
-        m_spawnedDocument = Instantiate(m_documentPrefab[Random.Range(0, m_documentPrefab.Length)], documentSpawn);
-        m_spawnedDocument.GetComponent<Interactable>().SetText(m_currentCultist.CultistInfo);
+        Transform documentSpawn = m_documentSpawns[1];
+        m_spawnedDocuments.Add(Instantiate(m_documentPrefab[0], documentSpawn));
+        m_spawnedDocuments[m_spawnedDocuments.Count - 1].GetComponent<Interactable>().SetText(m_currentCultist.CultistInfo);
+
+        documentSpawn = m_documentSpawns[2];
+        m_spawnedDocuments.Add(Instantiate(m_documentPrefab[1], documentSpawn)); 
+
+        List<string> infos = m_currentCultist.CultistInfo.Split(",").ToList();
+        string realInfos = "";
+        for (int i = 0; i < infos.Count; i++) {
+            if (i == 0 || i == infos.Count - 1) {
+                realInfos += infos[i] + ",";
+            }
+        }
+        realInfos = realInfos.Remove(realInfos.Length - 1);
+        m_spawnedDocuments[m_spawnedDocuments.Count - 1].GetComponent<Interactable>().SetText(realInfos);
     }
 
     public void AcceptCultist() {
@@ -46,7 +60,10 @@ public class CultistManager : Singleton<CultistManager>
 
     private IEnumerator AcceptCoroutine() {
         yield return DelayDestroy(1);
-        Destroy(m_spawnedDocument);
+        foreach (var item in m_spawnedDocuments) {
+            Destroy(item);
+        }
+        m_spawnedDocuments.Clear();
         m_currentCultist.SetWalkTarget(m_cultistGoalWalkPoint, true);
         if (m_currentCultist.Acceptable) {
             Debug.Log("Cultist accepted: you win");
@@ -77,6 +94,9 @@ public class CultistManager : Singleton<CultistManager>
 
     private IEnumerator DelayDestroy(float delayTime) {
         yield return new WaitForSeconds(delayTime);
-        Destroy(m_spawnedDocument);
+        foreach (var item in m_spawnedDocuments) {
+            Destroy(item);
+        }
+        m_spawnedDocuments.Clear();
     }
 }

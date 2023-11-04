@@ -357,12 +357,16 @@ PrefabInstance:
       objectReference: {fileID: 5310639389769280458}
     - target: {fileID: 5315086189985092081, guid: 36c8896b24e76cb4b80ec8836b3a9f8a, type: 3}
       propertyPath: m_documentPrefab.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5315086189985092081, guid: 36c8896b24e76cb4b80ec8836b3a9f8a, type: 3}
       propertyPath: m_documentPrefab.Array.data[0]
       value: 
       objectReference: {fileID: 6115601621131712562, guid: 7dfd3e87ecd8b2f4897931d885fa8454, type: 3}
+    - target: {fileID: 5315086189985092081, guid: 36c8896b24e76cb4b80ec8836b3a9f8a, type: 3}
+      propertyPath: m_documentPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 5127393145007325576, guid: 6729c2771ad5c6c43abd1f11ad02f641, type: 3}
     - target: {fileID: 5857667659355642975, guid: 36c8896b24e76cb4b80ec8836b3a9f8a, type: 3}
       propertyPath: m_cameraDefaultPos
       value: 

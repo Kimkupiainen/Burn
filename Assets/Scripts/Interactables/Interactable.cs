@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField]private TMP_Text m_infoText;
+    [SerializeField]private List<TMP_Text> m_infoTexts;
     private Transform m_targetTransform;
     private float startY;
 
@@ -24,9 +24,16 @@ public class Interactable : MonoBehaviour
     }
 
     public void SetText(string text) {
-        if(m_infoText == null) {
+        if(m_infoTexts == null) {
             return;
         }
-        m_infoText.text = text;
+        string[] infos = text.Split(",");
+        for (int i = 0; i < m_infoTexts.Count; i++) {
+            m_infoTexts[i].text = infos[i];
+        }
+        /*if(m_infoText == null) {
+            return;
+        }
+        m_infoText.text = text;*/
     }
 }
