@@ -5,17 +5,17 @@ using UnityEngine;
 public class attributeList : MonoBehaviour
 {
 
-    public string[] namesFemale = 
+    [SerializeField] private string[] namesFemale = 
     {"Abigail", "Ada", "Adrianne", "Aileen", "Amanda", "Amy", "Belinda", "Beatrice", "Brenda", "Carol", "Cheryl", "Christine", "Diana", "Dorothy", "Eleanor", "Elizabeth", "Elspeth", "Emma", "Francesca", "Gail", "Gertie", "Gwendolyn", "Harriet", "Helena", "Hilda", "Honor", "Iris", "Isabel", "Jane", "Janis", "Jenny", "Jo", "Judith", "Katherine", "Kay", "Laurie", "Lindsay", "Louise", "Lucy", "Mabel", "Madeleine", "Margaret", "Marilla", "Mary", "Matilda", "Mildred", "Natalie", "Olivia", "Phyllis", "Polly", "Rebecca", "Rosalie", "Ruth", "Sally", "Sarah", "Shirley", "Susan", "Tabitha", "Tammy", "Thomasina", "Tamsin", "Valerie", "Vanessa", "Wenda", "Wendy", "Winnie", "Zoe"};
     
-    public string[] namesMale = 
+    [SerializeField] private string[] namesMale = 
     {"Alan", "Alec", "Alfred", "Alex", "Alexis", "Alistair", "Andrew", "Anthony", "Archie", "Aubrey", "Bernard", "Basil", "Bill", "Bob", "Charles", "Christopher", "Clive", "Colin", "Culverton", "Dashiel", "David", "Derek", "Edmund", "Eric", "Frank", "Fred", "Gary", "Gordon", "Graham", "Harry", "Horatio", "Ian", "Isaac", "James", "Jeffrey", "Jeremy", "Jude", "Julian", "Kenneth", "Lee", "Lesley", "Michael", "Morris", "Mycroft", "Ned", "Neville", "Nigel", "Norris", "Patrick", "Peter", "Ray", "Reginald", "Robert", "Roderick", "Roger", "Rowland", "Rupert", "Samuel", "Stephen", "Stratford", "Terrance", "Tobias", "Trevor", "Victor", "Warren", "Wendy", "William", "Wilkins", "Winston", "Zachariah", "Zak"};
     
-    public string[] Surnames = 
+    [SerializeField] private string[] Surnames = 
     {"Abbot", "Aldred", "Anderson", "Archer", "Averill", "Bailey", "Barnstable", "Bleasdale", "Bloom", "Brady", "Brewer", "Brookes", "Brown", "Burgess", "Cable", "Campbell", "Chamberlain", "Chissick", "Clarke", "Corbett", "Curtis", "Dalziel", "Dangerfield", "Davies", "Dawson", "Dedlock", "Dehn", "Dobson", "Doughty", "Dyer", "Eaton", "Edwards", "Elliot", "Evans", "Faber", "Finch", "Ford", "Fraser", "Freeman", "Gabriel", "Gibson", "Gogan", "Gray", "Green", "Griffith", "Haigh", "Hall", "Harker", "Harrison", "Healy", "Hobbs", "Hydewell", "Idle", "Insull", "Jeeves", "Johnson", "Jones", "Kavanagh", "Kemp", "King", "Knight", "Lamb", "Lawrence", "Leather", "Lewis", "Loxton", "Lucy", "Lyndsey", "Lynch", "Maghie", "Matthias", "Meats", "Mitchell", "Moxon", "Napier", "Newton", "Norris", "Odd", "Owen", "Palmer", "Pascoe", "Peel", "Pippin", "Pook", "Porter", "Quatermass", "Quinn", "Raven", "Reynolds", "Rimes", "Risholt", "Roberts", "Savage", "Scott", "Sedgwick", "Sharpe", "Shoesmith", "Simpson", "Smith", "Steel", "Taylor", "Thomas", "Titmarsh", "Tompkins", "Turnbull", "Uckley", "Updike", "Vine", "Walker", "Warren", "Watkins", "Watson", "West", "Wilkins", "Williams", "Wilson", "Young", "Zedan"};
 
 
-    public string[] goodOccupationList = 
+    [SerializeField] private string[] goodOccupationList = 
     {
         "Doctor", //Good occupation
         "Teacher",
@@ -35,9 +35,10 @@ public class attributeList : MonoBehaviour
         "Actor",
         "Scientist",
         "Librarian",
+        "Unemployed"
     };
 
-    public string[] badOccupationList = 
+    [SerializeField] private string[] badOccupationList = 
     {
         "Police", //Bad occupation
         "FBI Agent",
@@ -48,7 +49,7 @@ public class attributeList : MonoBehaviour
         "Game Developer"
     };
 
-    public string[] goodReasonList = 
+    [SerializeField] private string[] goodReasonList = 
     {
         "Gain esoteric knowledge that is hidden from the general populace.", //Good reasons
         "Experience a sense of belonging to a group with a secret purpose.",
@@ -66,7 +67,7 @@ public class attributeList : MonoBehaviour
         "Seek protection from cosmic horrors that the cult claims to appease or control.",
         "Experience a sense of excitement and danger from dabbling in the occult.",
     };
-    public string[] badReasonList =
+    [SerializeField] private string[] badReasonList =
     {
         "Believing that not having a permanently grave and serious demeanor means you cannot appreciate the gravity of their cause.", //bad reasons
         "Judging you for not having strange or eccentric enough habits to fit in with the cult's bizarre standards.",
@@ -89,6 +90,10 @@ public class attributeList : MonoBehaviour
     public bool goodOccupation;
     public bool goodReason;
 
+    public int age;
+
+    public int fakeAge;
+
     //define functions
 
     void Start(){//start unnecessary, for testing
@@ -100,15 +105,21 @@ public class attributeList : MonoBehaviour
     void printAttributes()//select gender, name, occupation to print on screen
     {
         string name = "";
-        bool gender = randomBool();
+        bool gender = randomBool(0.5f);
 
         string occupation = "";
-        goodOccupation = randomBool();
+        goodOccupation = randomBool(0.8f);
 
         string reason = "";
-        goodReason = randomBool();
+        goodReason = randomBool(0.8f);
 
-        int age = Random.Range(14, 100);
+        //for choosing age
+        age = Random.Range(9, 100);
+        if(randomBool(0.9f)){
+            fakeAge = age;
+        }else{
+            fakeAge = Random.Range(20, 50);
+        }
 
         //for choosing name
         name = randomSelection(gender, namesFemale, namesMale);
@@ -123,25 +134,11 @@ public class attributeList : MonoBehaviour
 
         Debug.Log(name);
         Debug.Log(age);
+        Debug.Log(fakeAge);
         Debug.Log(gender);
         Debug.Log(occupation);
         Debug.Log(reason);
     }
-
-
-    public bool Choice(bool rightOccupation, bool rightReason) //Select whether or not reason and/or occupation is appropriate
-    {
-        if(rightOccupation)
-        {
-            return true;
-        }else if(rightReason)
-        {
-            return true;
-        }else{
-        return false;
-        }
-    }
-
 
     string randomSelection(bool z, string[] x, string[] y){
         if (z){ //choose name randomly
@@ -152,8 +149,8 @@ public class attributeList : MonoBehaviour
 
     }
 
-    bool randomBool(){
-        if(Random.value >= 0.5){
+    bool randomBool(float percentage){
+        if(Random.value <= percentage){
             return true;
         }
         return false;
