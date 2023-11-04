@@ -13,6 +13,7 @@ public class CultistManager : Singleton<CultistManager>
     [SerializeField] private Transform m_cultistGoalWalkPoint;
     private Cultist m_currentCultist;
     public float cultistMoveSpeed = 3;
+    public float cultistTurnSpeed = 2;
     private GameObject m_spawnedDocument;
     private Player m_player;
 
