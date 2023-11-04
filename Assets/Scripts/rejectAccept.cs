@@ -7,8 +7,11 @@ public class rejectAccept : MonoBehaviour
 {
     public int sanity = 10;
 
-    public void choice(bool acceptable, bool buttonPress) //BUTTON PRESS: false for rejected individual, true for accepted individual
+    public void choice(bool buttonPress) //BUTTON PRESS: false for rejected individual, true for accepted individual
     {
+        attributeList al = GetComponent<attributeList>();
+        bool acceptable = al.acceptable;
+
         if(acceptable == buttonPress){
             sanity++;
             //return true;
