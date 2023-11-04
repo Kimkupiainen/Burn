@@ -37,9 +37,17 @@ public class CultistManager : Singleton<CultistManager>
     }
 
     public void AcceptCultist() {
+        StartCoroutine(AcceptCoroutine());
+    }
+    public void DeclineCultist() {
+        StartCoroutine(DeclineCoroutine());
+    }
+
+    private IEnumerator AcceptCoroutine() {
+        yield return DelayDestroy(1);
         Destroy(m_spawnedDocument);
         m_currentCultist.SetWalkTarget(m_cultistGoalWalkPoint, true);
-        if(m_currentCultist.Acceptable) {
+        if (m_currentCultist.Acceptable) {
             Debug.Log("Cultist accepted: you win");
             //m_player.UpdateSanity(1);
         }
@@ -47,9 +55,10 @@ public class CultistManager : Singleton<CultistManager>
             Debug.Log("Cultist accepted: you lose");
             m_player.UpdateSanity(-1);
         }
+
     }
 
-    public void DeclineCultist() {
+    private IEnumerator DeclineCoroutine() {
         if (m_currentCultist.Acceptable) {
             Debug.Log("Cultist denied: you lose");
             m_player.UpdateSanity(-1);
@@ -58,8 +67,15 @@ public class CultistManager : Singleton<CultistManager>
             Debug.Log("Cultist denied: you win");
             //m_player.UpdateSanity(1);
         }
+        yield return DelayDestroy(1);
         Destroy(m_currentCultist.gameObject);
-        Destroy(m_spawnedDocument);
         SpawnCultist();
+
+    }
+
+
+    private IEnumerator DelayDestroy(float delayTime) {
+        yield return new WaitForSeconds(delayTime);
+        Destroy(m_spawnedDocument);
     }
 }
