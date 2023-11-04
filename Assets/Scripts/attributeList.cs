@@ -51,7 +51,7 @@ public class attributeList : Singleton<attributeList>
         "Game Developer"
     };
 
-    [SerializeField] private string[] goodReasonList = 
+    private string[] goodReasonList = 
     {
         "I want to gain hidden esoteric knowledge.", //Good reasons
         "I want to experience a sense of belonging to a group.",
@@ -67,9 +67,11 @@ public class attributeList : Singleton<attributeList>
         "I wish to embrace a new perspective on life and the cosmos.",
         //questionable "Develop a sense of superiority from possessing forbidden knowledge.",
         "I wish to seek protection from K'egri-Pu'qi.",//funny ha ha nimi sille vanhalle jumalalle
-        "I wish to experience excitement and danger from dabbling in the occult."
+        "I wish to experience excitement and danger from dabbling in the occult.",
+        "I want to burn down my kindergarten."
     };
-    [SerializeField] private string[] badReasonList =
+
+    private string[] badReasonList =
     {
         "I do not believe in eldritch beings and I want to prove you wrong.", //bad reasons
         "I'm just a normal person, I don't know why I am here.",
@@ -86,14 +88,15 @@ public class attributeList : Singleton<attributeList>
         "I totally LOVE Cthulhu can I please join?????",
         "Uhhmmm actually eldritch beings do not exist.",
         "I would like to be on your marketing team.",
+        "Do you give free samples?",
         "Arson."
     };
 
     //public bool goodOccupation;
     //public bool goodReason;
 
-    //public int age;
-    //public int fakeAge;
+    public int age;
+    public int fakeAge;
 
     public bool acceptable;
 
@@ -118,9 +121,9 @@ public class attributeList : Singleton<attributeList>
         bool goodReason = randomBool(0.8f); 
 
         //for choosing age and fake age
-        int age = Random.Range(9, 100);
+        age = Random.Range(9, 100);
 
-        int fakeAge = age;
+        fakeAge = age;
         if(randomBool(0.1f)){
             fakeAge = Random.Range(20, 50);
         }
@@ -166,7 +169,7 @@ public class attributeList : Singleton<attributeList>
         "Gender: " + genderText + "\n" + 
         "Occupation: " + occupation + "\n" + 
         "Reason for joining: " + reason;
-        
+
         Debug.Log(printedText);
         Debug.Log("is acceptable: " + acceptable);
 
