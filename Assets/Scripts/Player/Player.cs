@@ -44,6 +44,9 @@ public class Player : MonoBehaviour
     }
 
     private void OnInteract(InputValue value) {
+        if(GameManager.Instance.IsDayEnded) {
+            return;
+        }
         if(GameManager.Instance.IsGameLost) {
             return;
         }
@@ -58,10 +61,16 @@ public class Player : MonoBehaviour
     }
 
     public void OnChangeView() {
+        if (GameManager.Instance.IsDayEnded) {
+            return;
+        }
         if (GameManager.Instance.IsGameLost) {
             return;
         }
         if(m_isInspecting) {
+            return;
+        }
+        if (!CultistManager.Instance.IsCultistAtTable) {
             return;
         }
         CameraManager.Instance.ChangeCameraPosition();
@@ -73,6 +82,9 @@ public class Player : MonoBehaviour
     }
 
     private void OnMoveHand(InputValue value) {
+        if (GameManager.Instance.IsDayEnded) {
+            return;
+        }
         if (m_isInspecting) {
             return;
         }
@@ -84,6 +96,9 @@ public class Player : MonoBehaviour
     }
 
     private void HandleVoteButtonInteract() {
+        if (GameManager.Instance.IsDayEnded) {
+            return;
+        }
         if (GameManager.Instance.IsGameLost) {
             return;
         }
@@ -101,6 +116,9 @@ public class Player : MonoBehaviour
     }
 
     private void HandleDocumentInteract() {
+        if (GameManager.Instance.IsDayEnded) {
+            return;
+        }
         if (GameManager.Instance.IsGameLost) {
             return;
         }
@@ -130,6 +148,9 @@ public class Player : MonoBehaviour
     }
 
     private void HandleHandMove() {
+        if (GameManager.Instance.IsDayEnded) {
+            return;
+        }
         if (GameManager.Instance.IsGameLost) {
             return;
         }

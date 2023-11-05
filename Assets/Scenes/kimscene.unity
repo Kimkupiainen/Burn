@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.42
+  m_FogDensity: 0.32
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -296,6 +296,26 @@ PrefabInstance:
       propertyPath: m_maxIntensity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4099879018345676521, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: bellclip.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4099879018345676521, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: bellclip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 522807d51b8302549821f9d9ce8006ba, type: 3}
+    - target: {fileID: 4099879018345676521, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: bellclip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 968b8e5bbb71fb14ab356f8ab379bbed, type: 3}
+    - target: {fileID: 4099879018345676521, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: bellclip.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 34bffb6b33a376b4a99f59e296cddb6e, type: 3}
+    - target: {fileID: 4099879018345676521, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: bellclip.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ecb4873ac9401740b19818c9e7fcd93, type: 3}
     - target: {fileID: 4263172684775098511, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -380,6 +400,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 6282157578461141698, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6391376428746443508, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -400,6 +424,26 @@ PrefabInstance:
       propertyPath: m_maxIntensity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6832482823262656264, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: bellclip.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832482823262656264, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: bellclip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 522807d51b8302549821f9d9ce8006ba, type: 3}
+    - target: {fileID: 6832482823262656264, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: bellclip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 968b8e5bbb71fb14ab356f8ab379bbed, type: 3}
+    - target: {fileID: 6832482823262656264, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: bellclip.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 34bffb6b33a376b4a99f59e296cddb6e, type: 3}
+    - target: {fileID: 6832482823262656264, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
+      propertyPath: bellclip.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ecb4873ac9401740b19818c9e7fcd93, type: 3}
     - target: {fileID: 6832482823262656264, guid: 709dee6cfcaadc148affa089d3df7f21, type: 3}
       propertyPath: m_lightAnimationDuration
       value: 5
