@@ -10,7 +10,7 @@ public class VoteButton : MonoBehaviour
     [SerializeField] private float m_lightAnimationDuration = 1.0f; // Duration of the light color change animation
     [SerializeField] private Color m_acceptanceColor = Color.green; // Color for acceptance
     [SerializeField] private Color m_declineColor = Color.red; // Color for decline
-    [SerializeField] private float m_maxIntensity = 2.0f; // Max intensity for the point lights
+    [SerializeField] private float m_maxIntensity = 0.0f; // Max intensity for the point lights
     [SerializeField] private Color m_emissionColor; // The original emission color
     [SerializeField] AudioClip[] audioClip;
     [SerializeField] AudioSource source;

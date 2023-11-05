@@ -14,6 +14,8 @@ public class CultistManager : Singleton<CultistManager>
     [SerializeField] private Transform m_cultistWalkPoint;
     [SerializeField] private Transform m_cultistGoalWalkPoint;
     [SerializeField] VisualEffect cultistfire;
+    [SerializeField] Light pointlight;
+    float defaultlightintensity;
     private Cultist m_currentCultist;
     public float cultistMoveSpeed = 3;
     public float cultistTurnSpeed = 2;
@@ -23,6 +25,7 @@ public class CultistManager : Singleton<CultistManager>
     private void Start() {
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         SpawnCultist();
+        defaultlightintensity = pointlight.intensity;
         cultistfire.Stop();
     }
 
@@ -33,6 +36,7 @@ public class CultistManager : Singleton<CultistManager>
         m_currentCultist = Instantiate(m_cultistBase, m_cultistSpawnPoint).GetComponent<Cultist>();
         m_currentCultist.SetWalkTarget(m_cultistWalkPoint);
         m_currentCultist.Init(m_cultistModel);
+        pointlight.intensity = defaultlightintensity;
     }
 
     public void CultistAtTable() {
@@ -89,6 +93,7 @@ public class CultistManager : Singleton<CultistManager>
             //m_player.UpdateSanity(1);
         }
         cultistfire.Play();
+        pointlight.intensity = 0;
         yield return DelayDestroy(5);
         Destroy(m_currentCultist.gameObject);
         cultistfire.Stop();
