@@ -64,7 +64,6 @@ public class CultistManager : Singleton<CultistManager>
         }
         realInfos = realInfos.Remove(realInfos.Length - 1);
         m_spawnedDocuments[m_spawnedDocuments.Count - 1].GetComponent<Interactable>().SetText(realInfos);
-        IsCultistAtTable = true;
     }
 
     private IEnumerator SpawnDocumentsCoroutine() {
@@ -78,6 +77,7 @@ public class CultistManager : Singleton<CultistManager>
                 yield return null;
             }
         }
+        IsCultistAtTable = true;
     }
 
     public void AcceptCultist() {

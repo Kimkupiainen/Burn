@@ -114,7 +114,12 @@ MonoBehaviour:
   m_maxIntensity: 2
   m_emissionColor: {r: 0, g: 0, b: 0, a: 0}
   bellclip: []
-  burning: {fileID: 8300000, guid: 0c401c09f76dddb40adefc068612db01, type: 3}
+  burning:
+  - {fileID: 8300000, guid: bb29a8d4967b00f4fa1daabe7589ce18, type: 3}
+  - {fileID: 8300000, guid: 13f550f190384c644a078d5c1d697e97, type: 3}
+  - {fileID: 8300000, guid: 554c8aa40def148418cd100fda8b9b75, type: 3}
+  - {fileID: 8300000, guid: eedd84d5f79fe5240bea2a0323b8e4f5, type: 3}
+  - {fileID: 8300000, guid: 0c401c09f76dddb40adefc068612db01, type: 3}
   burnsource: {fileID: 6282157578461141698}
   source: {fileID: 235356174193716711}
 --- !u!65 &9030334738356060686
@@ -413,7 +418,7 @@ MonoBehaviour:
   m_maxIntensity: 2
   m_emissionColor: {r: 0, g: 0, b: 0, a: 0}
   bellclip: []
-  burning: {fileID: 0}
+  burning: []
   burnsource: {fileID: 0}
   source: {fileID: 235356174193716711}
 --- !u!65 &6065462346423897368
