@@ -22,6 +22,8 @@ public class CultistManager : Singleton<CultistManager>
     private List<GameObject> m_spawnedDocuments = new List<GameObject>();
     private Player m_player;
 
+    public bool IsCultistAtTable = false;
+
     private void Start() {
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         SpawnCultist();
@@ -30,9 +32,13 @@ public class CultistManager : Singleton<CultistManager>
     }
 
     public void SpawnCultist() {
+        if (GameManager.Instance.IsDayEnded) {
+            return;
+        }
         if (GameManager.Instance.IsGameLost) {
             return;
         }
+        GameManager.Instance.CurrentCultistIndex++;
         m_currentCultist = Instantiate(m_cultistBase, m_cultistSpawnPoint).GetComponent<Cultist>();
         m_currentCultist.SetWalkTarget(m_cultistWalkPoint);
         m_currentCultist.Init(m_cultistModel);
@@ -57,6 +63,7 @@ public class CultistManager : Singleton<CultistManager>
         }
         realInfos = realInfos.Remove(realInfos.Length - 1);
         m_spawnedDocuments[m_spawnedDocuments.Count - 1].GetComponent<Interactable>().SetText(realInfos);
+        IsCultistAtTable = true;
     }
 
     private IEnumerator SpawnDocumentsCoroutine() {
@@ -73,13 +80,22 @@ public class CultistManager : Singleton<CultistManager>
     }
 
     public void AcceptCultist() {
+        if (!IsCultistAtTable) {
+            return;
+        }
         StartCoroutine(AcceptCoroutine());
+        IsCultistAtTable = false;
     }
     public void DeclineCultist() {
+        if (!IsCultistAtTable) {
+            return;
+        }
         StartCoroutine(DeclineCoroutine());
+        IsCultistAtTable = false;
     }
 
     private IEnumerator AcceptCoroutine() {
+        GameManager.Instance.TotalRecruited++;
         yield return DelayDestroy(1);
         foreach (var item in m_spawnedDocuments) {
             Destroy(item);
@@ -88,22 +104,27 @@ public class CultistManager : Singleton<CultistManager>
         m_currentCultist.SetWalkTarget(m_cultistGoalWalkPoint, true);
         if (m_currentCultist.Acceptable) {
             Debug.Log("Cultist accepted: you win");
+            GameManager.Instance.BelieverRecruit++;
             //m_player.UpdateSanity(1);
         }
         else {
             Debug.Log("Cultist accepted: you lose");
             m_player.UpdateSanity(-1);
+            GameManager.Instance.HereticRecruit++;
         }
-
+        GameManager.Instance.CheckEndDay();
     }
 
     private IEnumerator DeclineCoroutine() {
+        GameManager.Instance.TotalBurned++;
         if (m_currentCultist.Acceptable) {
             Debug.Log("Cultist denied: you lose");
             m_player.UpdateSanity(-1);
+            GameManager.Instance.BelieverBurn++;
         }
         else {
             Debug.Log("Cultist denied: you win");
+            GameManager.Instance.HereticBurn++;
             //m_player.UpdateSanity(1);
         }
         cultistfire.Play();
@@ -111,8 +132,8 @@ public class CultistManager : Singleton<CultistManager>
         yield return DelayDestroy(5);
         Destroy(m_currentCultist.gameObject);
         cultistfire.Stop();
+        GameManager.Instance.CheckEndDay();
         SpawnCultist();
-
     }
 
 
