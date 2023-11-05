@@ -41,11 +41,12 @@ public class CultistManager : Singleton<CultistManager>
 
     public void CultistAtTable() {
         Transform documentSpawn = m_documentSpawns[1];
-        m_spawnedDocuments.Add(Instantiate(m_documentPrefab[0], documentSpawn));
+        m_spawnedDocuments.Add(Instantiate(m_documentPrefab[0], documentSpawn.transform.position + Vector3.up, m_documentPrefab[0].transform.rotation, documentSpawn));
         m_spawnedDocuments[m_spawnedDocuments.Count - 1].GetComponent<Interactable>().SetText(m_currentCultist.CultistInfo);
 
         documentSpawn = m_documentSpawns[2];
-        m_spawnedDocuments.Add(Instantiate(m_documentPrefab[1], documentSpawn)); 
+        m_spawnedDocuments.Add(Instantiate(m_documentPrefab[1], documentSpawn.transform.position + Vector3.up, m_documentPrefab[1].transform.rotation, documentSpawn));
+        StartCoroutine(SpawnDocumentsCoroutine());
 
         List<string> infos = m_currentCultist.CultistInfo.Split(",").ToList();
         string realInfos = "";
@@ -56,6 +57,19 @@ public class CultistManager : Singleton<CultistManager>
         }
         realInfos = realInfos.Remove(realInfos.Length - 1);
         m_spawnedDocuments[m_spawnedDocuments.Count - 1].GetComponent<Interactable>().SetText(realInfos);
+    }
+
+    private IEnumerator SpawnDocumentsCoroutine() {
+        while (m_spawnedDocuments[0].transform.localPosition.y > 0) {
+            foreach (var item in m_spawnedDocuments) {
+                float step = Vector3.up.y * Time.deltaTime * 2;
+                if(item.transform.localPosition.y - step < 0) {
+                    step = item.transform.localPosition.y;
+                }
+                item.transform.position -= Vector3.up * step;
+                yield return null;
+            }
+        }
     }
 
     public void AcceptCultist() {
