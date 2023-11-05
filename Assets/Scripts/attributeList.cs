@@ -112,7 +112,8 @@ public class attributeList : Singleton<attributeList>
         "I will renounce all previous beliefs and devote myself entirely to K'egri-Pu'qhi.",
         "I'm prepared to engage in extreme fasting and deprivation to cleanse my spirit.",
         "I'm willing to make a blood oath to demonstrate my commitment to the cause.",
-        "rwqfsfasxcaikfjaflasjdöaskdoiwahiowhak. Let me join."
+        "rwqfsfasxcaikfjaflasjdöaskdoiwahiowhak. Let me join.",
+        "Would you rather have unlimited bacon but no more video games or unlimited games but no more games?"
     };
 
     private string[] badReasonList =
@@ -152,7 +153,8 @@ public class attributeList : Singleton<attributeList>
         "I'm available to work on weekdays from 8:00 until 17:00.",
         "I have an exciting offer for you.",
         "I'm putting an end to this cult.",
-        "My pet snail would like to join."
+        "My pet snail would like to join.",
+        "Oh God please save me from these freaks."
     };
 
     //public bool goodOccupation;
