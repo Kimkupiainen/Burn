@@ -43,6 +43,7 @@ public class CultistManager : Singleton<CultistManager>
         m_currentCultist.SetWalkTarget(m_cultistWalkPoint);
         m_currentCultist.Init(m_cultistModel);
         pointlight.intensity = defaultlightintensity;
+        UIManager.Instance.UpdateCultistText();
     }
 
     public void CultistAtTable() {
