@@ -7410,6 +7410,22 @@ PrefabInstance:
       value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 6497557764201018190, guid: d5ffc9bba5867ee44a1d05570b6f830e, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497557764201018190, guid: d5ffc9bba5867ee44a1d05570b6f830e, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
+      value: 4.8103447
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497557764201018190, guid: d5ffc9bba5867ee44a1d05570b6f830e, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.y
+      value: 19.122007
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497557764201018190, guid: d5ffc9bba5867ee44a1d05570b6f830e, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.z
+      value: 2.0745575
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497557764201018190, guid: d5ffc9bba5867ee44a1d05570b6f830e, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Overridden
       value: 1
       objectReference: {fileID: 0}
@@ -7464,6 +7480,10 @@ PrefabInstance:
     - target: {fileID: 9137583464324999501, guid: d5ffc9bba5867ee44a1d05570b6f830e, type: 3}
       propertyPath: m_Name
       value: vfx_Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137583464324999501, guid: d5ffc9bba5867ee44a1d05570b6f830e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
