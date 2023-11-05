@@ -151,7 +151,8 @@ public class attributeList : Singleton<attributeList>
         "Welcome to McDonalds. Can I have your order please?",
         "I'm available to work on weekdays from 8:00 until 17:00.",
         "I have an exciting offer for you.",
-        "I'm putting an end to this cult."
+        "I'm putting an end to this cult.",
+        "My pet snail would like to join."
     };
 
     //public bool goodOccupation;
