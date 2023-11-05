@@ -31,7 +31,6 @@ public class Cultist : MonoBehaviour
     private IEnumerator SetWalkTargetCoroutine(Transform walkTarget, bool isFinalDestination = false) {
         m_walkTarget = walkTarget;
         float targetAngle = Vector3.Angle(transform.forward, m_walkTarget.transform.position) - 90;
-            Debug.Log(targetAngle - m_modelParent.rotation.eulerAngles.y);
         float rotatedAmount = 0;
         float rotationDistance = Mathf.Abs(targetAngle - m_modelParent.rotation.eulerAngles.y);
         while (Mathf.Abs(rotatedAmount) < Mathf.Abs(rotationDistance)) {

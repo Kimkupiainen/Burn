@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InfoCanvasManager : Singleton<InfoCanvasManager>
@@ -25,6 +26,7 @@ public class InfoCanvasManager : Singleton<InfoCanvasManager>
 
     [SerializeField] private GameObject m_dayLabel;
     [SerializeField] private GameObject m_congratsText;
+    [SerializeField] private Button m_toMainMenuButton;
 
     private void Start() {
         m_tutorialPanel.SetActive(!IsTutorialShown);
@@ -35,12 +37,16 @@ public class InfoCanvasManager : Singleton<InfoCanvasManager>
         m_nextDayButton.onClick.AddListener(() => {
             GameManager.Instance.StartDay();
         });
+        m_toMainMenuButton.onClick.AddListener(() => {
+            SceneManager.LoadScene(0);
+        });
         canvasGroup = GetComponentInChildren<CanvasGroup>();
         m_infoPanel.SetActive(false);
         m_dayLabel.SetActive(true);
         m_congratsText.SetActive(false);
         m_dayText.gameObject.SetActive(true);
         m_nextDayButton.gameObject.SetActive(true);
+        m_toMainMenuButton.gameObject.SetActive(false);
     }
 
     public void UpdateInfos() {
@@ -61,6 +67,7 @@ public class InfoCanvasManager : Singleton<InfoCanvasManager>
             m_dayText.gameObject.SetActive(false);
             m_congratsText.SetActive(true);
             m_nextDayButton.gameObject.SetActive(false);
+            m_toMainMenuButton.gameObject.SetActive(true);
         }
     }
 
