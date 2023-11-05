@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class CultistManager : Singleton<CultistManager>
 {
@@ -12,7 +13,7 @@ public class CultistManager : Singleton<CultistManager>
     [SerializeField] private Transform m_cultistSpawnPoint;
     [SerializeField] private Transform m_cultistWalkPoint;
     [SerializeField] private Transform m_cultistGoalWalkPoint;
-    [SerializeField] ParticleSystem cultistfire;
+    [SerializeField] VisualEffect cultistfire;
     private Cultist m_currentCultist;
     public float cultistMoveSpeed = 3;
     public float cultistTurnSpeed = 2;

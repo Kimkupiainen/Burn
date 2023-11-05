@@ -33,7 +33,7 @@ MonoBehaviour:
     value: 0.205
   roundness:
     overrideState: 1
-    value: 0.162
+    value: 0
   rounded:
     overrideState: 0
     value: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.256
+    value: 0.064
   fastMode:
     overrideState: 0
     value: 0
