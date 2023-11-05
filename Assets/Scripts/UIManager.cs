@@ -15,6 +15,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Button m_nextPageButton;
     [SerializeField] private Button m_previousPageButton;
     [SerializeField] private TMP_Text m_sanityText;
+
+    [SerializeField] private TMP_Text m_cultistPerDayText;
     private Player m_player;
 
 
@@ -48,6 +50,10 @@ public class UIManager : Singleton<UIManager>
 
     public void UpdateSanityText(int value, int maxValue) {
         m_sanityText.text = value + "/" + maxValue;
+    }
+
+    public void UpdateCultistText() {
+        m_cultistPerDayText.text = GameManager.Instance.CurrentCultistIndex + "/" + GameManager.Instance.MaxCultistPerDay;
     }
 
     public void EndGame() {

@@ -10,9 +10,11 @@ public class VoteButton : MonoBehaviour
     [SerializeField] private float m_lightAnimationDuration = 1.0f; // Duration of the light color change animation
     [SerializeField] private Color m_acceptanceColor = Color.green; // Color for acceptance
     [SerializeField] private Color m_declineColor = Color.red; // Color for decline
-    [SerializeField] private float m_maxIntensity = 2.0f; // Max intensity for the point lights
+    [SerializeField] private float m_maxIntensity = 0.0f; // Max intensity for the point lights
     [SerializeField] private Color m_emissionColor; // The original emission color
-    [SerializeField] AudioClip[] audioClip;
+    [SerializeField] AudioClip[] bellclip;
+    [SerializeField] AudioClip burning;
+    [SerializeField] AudioSource burnsource;
     [SerializeField] AudioSource source;
 
     private Coroutine currentMaterialAnimation;
@@ -49,13 +51,14 @@ public class VoteButton : MonoBehaviour
                 StopCoroutine(currentLightAnimation);
             }
             currentLightAnimation = StartCoroutine(ChangeCandleLights(m_declineColor));
+            burnsource.PlayOneShot(burning);
         }
     }
 
     private IEnumerator AnimateMaterialEmission(Color targetColor)
     {
         m_material.EnableKeyword("_EMISSION");
-        source.PlayOneShot(audioClip[Random.RandomRange(0, audioClip.Length)]);
+        source.PlayOneShot(bellclip[Random.RandomRange(0, bellclip.Length)]);
         float currentTime = 0;
         Color startColor = m_material.GetColor("_EmissionColor");
 
