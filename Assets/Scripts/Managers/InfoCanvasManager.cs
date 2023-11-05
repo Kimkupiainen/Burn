@@ -23,6 +23,9 @@ public class InfoCanvasManager : Singleton<InfoCanvasManager>
 
     private CanvasGroup canvasGroup;
 
+    [SerializeField] private GameObject m_dayLabel;
+    [SerializeField] private GameObject m_congratsText;
+
     private void Start() {
         m_tutorialPanel.SetActive(!IsTutorialShown);
         m_closeButton.onClick.AddListener(() => {
@@ -34,6 +37,10 @@ public class InfoCanvasManager : Singleton<InfoCanvasManager>
         });
         canvasGroup = GetComponentInChildren<CanvasGroup>();
         m_infoPanel.SetActive(false);
+        m_dayLabel.SetActive(true);
+        m_congratsText.SetActive(false);
+        m_dayText.gameObject.SetActive(true);
+        m_nextDayButton.gameObject.SetActive(true);
     }
 
     public void UpdateInfos() {
@@ -47,6 +54,14 @@ public class InfoCanvasManager : Singleton<InfoCanvasManager>
 
         m_hereticsRecruitedText.text = GameManager.Instance.HereticRecruit.ToString();
         m_hereticsBurnedText.text = GameManager.Instance.HereticBurn.ToString();
+
+        //EndGame
+        if(GameManager.Instance.DayCount >= GameManager.Instance.MaxDays) {
+            m_dayLabel.SetActive(false);
+            m_dayText.gameObject.SetActive(false);
+            m_congratsText.SetActive(true);
+            m_nextDayButton.gameObject.SetActive(false);
+        }
     }
 
     public IEnumerator FadeInCoroutine() {
