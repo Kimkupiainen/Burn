@@ -567,7 +567,7 @@ RectTransform:
   m_GameObject: {fileID: 816136231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7001887994130990065}
@@ -967,7 +967,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949397175}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43926802, y: -0.5541152, z: 0.43926802, w: 0.5541151}
+  m_LocalRotation: {x: 0.439268, y: -0.5541152, z: 0.43926796, w: 0.5541151}
   m_LocalPosition: {x: 1, y: 9.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9976,10 +9976,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 200
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -10232,7 +10232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284633233}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43926802, y: -0.5541152, z: 0.43926802, w: 0.5541151}
+  m_LocalRotation: {x: 0.439268, y: -0.5541152, z: 0.43926796, w: 0.5541151}
   m_LocalPosition: {x: 1, y: 9.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10511,7 +10511,7 @@ RectTransform:
   m_GameObject: {fileID: 1546516680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1484186786}
@@ -10924,7 +10924,7 @@ RectTransform:
   m_GameObject: {fileID: 2090179392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7029824964364513653}
