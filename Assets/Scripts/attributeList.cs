@@ -37,7 +37,8 @@ public class attributeList : Singleton<attributeList>
         "Actor",
         "Scientist",
         "Librarian",
-        "Unemployed"
+        "Unemployed",
+        "Meth Kingpin"
     };
 
     private string[] badOccupationList = 
@@ -57,7 +58,11 @@ public class attributeList : Singleton<attributeList>
         "Media Critic",
         "Twitter User",
         "Monk",
-        "Prosecutor"
+        "Prosecutor",
+        "News Anchor",
+        "Politician",
+        "Investigator",
+        "YouTuber"
     };
 
     private string[] goodReasonList = 
@@ -92,7 +97,7 @@ public class attributeList : Singleton<attributeList>
         "I will renounce all previous beliefs and devote myself entirely to K'egri-Pu'qhi.",
         "I'm prepared to engage in extreme fasting and deprivation to cleanse my spirit.",
         "I'm willing to make a blood oath to demonstrate my commitment to the cause.",
-        "rwqfsfasxcaikfjaflasjdöaskdoiwahiowhakslf"
+        "rwqfsfasxcaikfjaflasjdöaskdoiwahiowhakslf. Let me join."
     };
 
     private string[] badReasonList =
@@ -123,10 +128,14 @@ public class attributeList : Singleton<attributeList>
         "I'm a therapist and think I can help your members with their personal issues.",
         "I'm a recruiter for a similar but more benevolent organization and want to offer your members a better path.",
         "I believe in the power of love and kindness",
-        "I have connections with influential people and could help your cult gain more recognition.",
+        "I have connections with influential people and could help your cult gain more recognition. For a significant amount of money.",
         "We've tried to contact you about your car's extended warranty.",
         "I'll contribute a significant sum of money to your organization if you make me a high ranking member.",
-        "I'm here to steal your secrets and sell them to the highest bidder."
+        "I'm here to steal your secrets and sell them to the highest bidder.",
+        "So I heard you're hiring...",
+        "Welcome to McDonalds. Can I have your order please?",
+        "I'm available to work on weekdays from 8:00 until 17:00.",
+        "I have an offer for you."
     };
 
     //public bool goodOccupation;

@@ -13,7 +13,7 @@ public class VoteButton : MonoBehaviour
     [SerializeField] private float m_maxIntensity = 0.0f; // Max intensity for the point lights
     [SerializeField] private Color m_emissionColor; // The original emission color
     [SerializeField] AudioClip[] bellclip;
-    [SerializeField] AudioClip burning;
+    [SerializeField] AudioClip[] burning;
     [SerializeField] AudioSource burnsource;
     [SerializeField] AudioSource source;
 
@@ -22,6 +22,9 @@ public class VoteButton : MonoBehaviour
 
     public void Interact()
     {
+        if(!CultistManager.Instance.IsCultistAtTable) {
+            return;
+        }
         if (m_isYesButton)
         {
             CultistManager.Instance.AcceptCultist();
@@ -51,7 +54,7 @@ public class VoteButton : MonoBehaviour
                 StopCoroutine(currentLightAnimation);
             }
             currentLightAnimation = StartCoroutine(ChangeCandleLights(m_declineColor));
-            burnsource.PlayOneShot(burning);
+            burnsource.PlayOneShot(burning[Random.Range(0, burning.Length)]);
         }
     }
 
