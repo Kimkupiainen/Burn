@@ -23,6 +23,7 @@ public class CultistManager : Singleton<CultistManager>
     private Player m_player;
 
     public bool IsCultistAtTable = false;
+    [SerializeField] private GameObject m_documentExplosion;
 
     private void Start() {
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -141,6 +142,7 @@ public class CultistManager : Singleton<CultistManager>
     private IEnumerator DelayDestroy(float delayTime) {
         yield return new WaitForSeconds(delayTime);
         foreach (var item in m_spawnedDocuments) {
+            Instantiate(m_documentExplosion, item.transform.position, Quaternion.identity);
             Destroy(item);
         }
         m_spawnedDocuments.Clear();
